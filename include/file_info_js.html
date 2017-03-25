@@ -1,0 +1,29 @@
+var getAbsoluteUrl = function(url) {
+	var a = document.createElement('a');
+	getAbsoluteUrl = function(url) { a.href=url; return a.href; }
+	return getAbsoluteUrl(url);  
+};
+var absoluteurl = getAbsoluteUrl(url);
+var aUrl = new URL(absoluteurl);
+var filenameLong = <?php echo '"' . $filename . '"'; ?>;
+var extLen = filenameLong.split('.').pop().length + 1;
+var start_and_end = function(str) { if (str.length > 56) { return str.substr(0, 54) + '... ' + str.substr(str.length - extLen, str.length); } return str; };
+var filename = start_and_end(filenameLong);
+var title = filename + " - " + $('h1').text();
+var extension = absoluteurl.substr((absoluteurl.lastIndexOf('.') +1));
+
+if (absoluteurl.includes("www.")) { var host = aUrl.hostname.replace("www.", ""); } else { var host = aUrl.hostname; }
+
+var exceptions =["github.com", "dropbox.com", "mega.nz", "mediafire.com"];
+<?php if (file_exists($filepath)) { echo 'if ($.inArray(host, exceptions) != -1) { document.write(\'<p title=\' + host + \' rel="nofollow">\' + host + \'</p>\'); } else { document.write(\'<p title="eks.ru" rel="nofollow">eks.ru</p>\'); };'; }; ?>
+document.write('<div class="file_source" style="width: 0; height: 0; opacity: 0;" id="link' + ($('#file_list tbody tr').length - 1) + '">' + getAbsoluteUrl(url) + '</div>');
+
+var clipboard = new Clipboard('.copy_link' + ($('#file_list tbody tr').length - 1) + '');
+clipboard.on('success', function(e) {
+	$('.note_wr').fadeIn(300, function () {
+		$(this).delay(3500).fadeOut(100);
+	});
+	e.clearSelection();
+});
+
+$("#file_name").text(filename); $('#file_name').removeAttr("id");
