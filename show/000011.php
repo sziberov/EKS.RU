@@ -52,7 +52,7 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 
 <div class="note_wr" id="fox_note"><div class="notify_bl">Ссылка скопирована в буфер обмена!</div></div>	
 
-<a href="/software"><h2>Программы</h2></a>
+<a href="/video"><h2>Видео</h2></a>
 
 <p id="arr_btns">
 	&nbsp;

@@ -8,14 +8,16 @@
 	<td class="menu_text">
 		&nbsp;
 		<a href="/"><img src="/i/eks-small.svg" height="12" border="0" alt="EKS" title="EKS">-Главная</a>&nbsp;|
+
 		<!--
-		<a href="/video">Видео</a>&nbsp;|
 		<a href="/audio">Аудио</a>&nbsp;|
 		<a href="/images">Изображения</a>&nbsp;|
 		<a href="/texts">Тексты</a>&nbsp;|
 		<a href="/games">Игры</a>&nbsp;|
 		-->
+
 		<a href="/software">Программы</a>&nbsp;|
+		<a href="/video">Видео</a>&nbsp;|
 		<a href="/about">О сервисе</a>&nbsp;|
 		<a href="/search">Поиск</a>
 		&nbsp;

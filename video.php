@@ -30,8 +30,8 @@ if (window.top != window.self) window.top.location = window.self.location;
 </td></tr>
 <tr><td valign="top" style="padding: 16px;" id="body_element">
 
-<!--<a href="/software"><h2>Программы</h2></a>-->
-<h1>Программы</h1><br>
+<!--<a href="/Видео"><h2>Видео</h2></a>-->
+<h1>Видео</h1><br>
 <p></p>
 	<!--
 	<table border="0" cellpadding="5" cellspacing="0">
@@ -66,7 +66,7 @@ if (window.top != window.self) window.top.location = window.self.location;
 <table width="100%" border="0" cellpadding="0" cellspacing="8" class="include_0"><tbody>
 
 <?php
-$category = 'domain_software';
+$category = 'domain_video';
 
 include($_SERVER['DOCUMENT_ROOT'] . "/include/category_objects.php");
 ?>
