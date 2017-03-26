@@ -235,8 +235,10 @@ if (window.top != window.self) window.top.location = window.self.location;
 		<div id="news">
 			<ul class="top">
 				<li id="data-tab_0" class="active"><span>Россия</span></li>
-				<li id="data-tab_1"><span>Украина</span></li>
-				<li id="data-tab_2"><span>Казахстан</span></li>
+				<li id="data-tab_1"><span>Казахстан</span></li>
+				<li id="data-tab_2"><span>Украина</span></li>
+				<li id="data-tab_3"><span>Польша</span></li>
+				<li id="data-tab_4"><span>Германия</span></li>
 				<!--
 				<li data-tab="2"><span>Экономика</span></li>
 				<li data-tab="3"><span>Политика</span></li>
@@ -267,13 +269,25 @@ if (window.top != window.self) window.top.location = window.self.location;
 					</div>
 					<div id="data-rss_1" style="display: none;">
 						<?php 
-						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/ukraine.xml'); 
+						$rss = simplexml_load_file('https://ru.sputniknews.kz/export/rss2/archive/index.xml'); 
 						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
 						?>
 					</div>
 					<div id="data-rss_2" style="display: none;">
 						<?php 
-						$rss = simplexml_load_file('https://ru.sputniknews.kz/export/rss2/archive/index.xml'); 
+						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/ukraine.xml'); 
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_3" style="display: none;">
+						<?php 
+						$rss = simplexml_load_file('https://news.yandex.ru/Poland/index.rss'); 
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_4" style="display: none;">
+						<?php 
+						$rss = simplexml_load_file('http://gordonua.com/xml/rss_tags/germanija.html'); 
 						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
 						?>
 					</div>
@@ -282,6 +296,8 @@ if (window.top != window.self) window.top.location = window.self.location;
 							if ($("#data-tab_0").hasClass("active")) { $('#data-rss_0').show().siblings().hide() };
 							if ($("#data-tab_1").hasClass("active")) { $('#data-rss_1').show().siblings().hide() };
 							if ($("#data-tab_2").hasClass("active")) { $('#data-rss_2').show().siblings().hide() };
+							if ($("#data-tab_3").hasClass("active")) { $('#data-rss_3').show().siblings().hide() };
+							if ($("#data-tab_4").hasClass("active")) { $('#data-rss_4').show().siblings().hide() };
 						};
 						updateNews();
 						

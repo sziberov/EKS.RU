@@ -1,8 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<?php
+$query = trim(htmlspecialchars($_GET["s"]), " ");
 
-<title>Поиск</title>
+if(strlen($query)>0){
+	echo '<title>Поиск "' . $query . '"</title>';
+} else {
+	echo '<title>Поиск</title>';
+}
+?>
 <link href="/css/index.css" type="text/css" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="robots" content="nofollow">
@@ -74,14 +81,16 @@ if (window.top != window.self) window.top.location = window.self.location;
 </form>
 
 <div style="padding:16px">
+	<?php
+	if(strlen($query)>0){
+		echo '<p>Поиск "<b>' . $query . '</b>":</p>';
+	}
+	?>
 	<p>
 	</p>
-	
 	<table width="100%" border="0" cellpadding="0" cellspacing="8" class="panel"><tbody>
 
 	<?php
-	$query = trim(htmlspecialchars($_GET["s"]), " ");
-
 	if(strlen($query)>0){
 		include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
 		
@@ -95,7 +104,7 @@ if (window.top != window.self) window.top.location = window.self.location;
 				echo '<p>';
 					echo '<a href="/show/' . $paddedI . '">';
 						if (stripos(get_title($path), $query) !== false) {
-							echo '<img src="' . get_icon($path) . '" border="0" align="left" style="max-width: 175px; max-height: 175px; margin: 0 16px 8px 0;" alt="' . get_title($path) . '" title="' . get_title($path) . '">';
+							echo '<img src="' . get_icon($path) . '" border="0" align="left" style="max-width: 200px; max-height: 200px; margin: 0 16px 8px 0;" alt="' . get_title($path) . '" title="' . get_title($path) . '">';
 						} else {
 							echo '<img src="' . get_icon($path) . '" border="0" align="left" style="max-width: 100px; max-height: 100px; margin: 0 16px 8px 0;" alt="' . get_title($path) . '" title="' . get_title($path) . '">';
 						}
@@ -127,7 +136,7 @@ if (window.top != window.self) window.top.location = window.self.location;
 
 </td></tr>
 <tr><td valign="bottom" height="32">
-<?php include($root . "/include/footer.html"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/include/footer.html"); ?>
 </td></tr>
 </tbody></table>
 </body></html>
