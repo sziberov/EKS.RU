@@ -61,13 +61,13 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 </p>	
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top">
-<img id="poster" alt="Discord 31/Янв/2017" src="/<?php echo $key ?>/discord-icon.png" style="margin: 0 16px 8px 0;" title="Discord 31/Янв/2017" align="left" border="0" style="max-height: 512px; max-width: 512px;">
+<img id="poster" alt="Discord 31/Янв/2017" src="/<?php echo $key ?>/discord-icon.png" style="margin: 0 16px 8px 0; max-height: 512px; max-width: 512px;" title="Discord 31/Янв/2017" align="left" border="0">
 <h1>Discord 31/Янв/2017</h1><br>
 <small id="upload_time">12 марта 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
 <p>
 </p>
 <div id="post">
-	<p>
+	<p id="main_info">
 		<b>Название:</b> Discord<br>
 		<b>Версия:</b> 31.Jan.2017<br>
 		<b>Лицензия:</b> freeware<br>
@@ -115,8 +115,13 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 <tbody>
 <tr>
 
-<?php include($root . "/include/files_info_size.php"); ?>
-<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: <span id="file_count"></span>, суммарный размер: <?php echo number_format(getDirectorySize($root . "/" . $key)); ?></small></td>
+<?php 
+include($root . "/include/files_info_size.php"); 
+
+$dir = $root . "/" . $key;
+include($root . "/include/files_count.php");
+?>
+<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: <?php echo $file_count ?></span>, суммарный размер: <?php echo number_format(getDirectorySize($dir)); ?></small></td>
 <td align="right" nowrap="nowrap" valign="bottom">&nbsp;
 
 <!--		Player		-->

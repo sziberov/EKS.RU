@@ -2,7 +2,7 @@
 <html id="domain_software"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-<title>Notepad++ 7.3.2 + 64bit</title>
+<title>Lightshot 5.4.0.1</title>
 <link href="/css/index.css" type="text/css" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="robots" content="nofollow">
@@ -33,7 +33,7 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 // if (window.top != window.self) window.top.location = window.self.location;
 </script>
 
-<meta name="title" content="Notepad++ 7.3.2 + 64bit">
+<meta name="title" content="Lightshot 5.4.0.1">
 <meta name="description" content="...">
 <meta property="og:image" content="/i/eks-3.png"/>
 <link rel="image_src" href="/i/eks-3.png">
@@ -61,13 +61,13 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 </p>	
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top">
-<img id="poster" alt="Notepad++ 7.3.2 + 64bit" src="/<?php echo $key ?>/logo-landing.png" style="margin: 0 16px 8px 0;" title="Notepad++ 7.3.2 + 64bit" align="left" border="0" style="max-height: 512px; max-width: 512px;">
-<h1>Notepad++ 7.3.2 + 64bit</h1><br>
+<img id="poster" alt="Lightshot 5.4.0.1" src="/<?php echo $key ?>/logo-landing.png" style="margin: 0 16px 8px 0; max-height: 512px; max-width: 512px;" title="Lightshot 5.4.0.1" align="left" border="0">
+<h1>Lightshot 5.4.0.1</h1><br>
 <small id="upload_time">19 января 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
 <p>
 </p>
 <div id="post">
-	<p>
+	<p id="main_info">
 		<b>Название:</b> Lightshot<br>
 		<b>Версия:</b> 5.4.0.1<br>
 		<b>Лицензия:</b> freeware<br>
@@ -111,8 +111,13 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 <tbody>
 <tr>
 
-<?php include($root . "/include/files_info_size.php"); ?>
-<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: <span id="file_count"></span>, суммарный размер: <?php echo number_format(getDirectorySize($root . "/" . $key)); ?></small></td>
+<?php 
+include($root . "/include/files_info_size.php"); 
+
+$dir = $root . "/" . $key;
+include($root . "/include/files_count.php");
+?>
+<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: <?php echo $file_count ?></span>, суммарный размер: <?php echo number_format(getDirectorySize($dir)); ?></small></td>
 <td align="right" nowrap="nowrap" valign="bottom">&nbsp;
 
 <!--		Player		-->

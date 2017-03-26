@@ -86,8 +86,13 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 <tbody>
 <tr>
 
-<?php include($root . "/include/files_info_size.php"); ?>
-<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: <span id="file_count"></span>, суммарный размер: <?php echo number_format(getDirectorySize($root . "/" . $key)); ?></small></td>
+<?php 
+include($root . "/include/files_info_size.php"); 
+
+$dir = $root . "/" . $key;
+include($root . "/include/files_count.php");
+?>
+<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: <?php echo $file_count ?></span>, суммарный размер: <?php echo number_format(getDirectorySize($dir)); ?></small></td>
 <td align="right" nowrap="nowrap" valign="bottom">&nbsp;
 
 <!--		Player		-->

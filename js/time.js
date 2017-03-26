@@ -43,7 +43,7 @@ function updateTime() {
 		document.getElementById('timeMoscow').innerHTML = h + ":" + m /*+ ":" + s*/;
 	}
 	if (document.getElementById('timeKiev')) {
-		calcTime('Kiev', '+2');
+		calcTime('Kiev', '+3');
 		document.getElementById('timeKiev').innerHTML = h + ":" + m /*+ ":" + s*/;
 	} else 
 	if (document.getElementById('timeAstana')) {

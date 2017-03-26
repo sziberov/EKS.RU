@@ -93,112 +93,6 @@ if (window.top != window.self) window.top.location = window.self.location;
 
 <div id="fox_body" style="width:964px; margin:0 auto; overflow:auto;">
 
-	<!--
-	<div id="fox_announcement" style="width:575px; float: left; font-size: 18px; text-align: justify; padding-top: 32px;">
-		<b>Уважаемые посетители EKS.RU,</b>
-		<p>
-			По всей видимости решение использовать <a href="http://www.ucoz.ru/">uCoz</a> или <a href="https://mega.nz/">mega.nz</a> для хостинга файлов было в корне ошибочным. В итоге на их место встал <a href="https://github.com/">GitHub</a>.
-		</p>
-		<p>
-			Он предоставляет:
-		</p>
-		<ul>
-			<li style="list-style-type: circle;">100mb для каждого отдельного файла;</li>
-			<li style="list-style-type: circle;">Неограниченное простанство в общем;</li>
-			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
-		</ul>
-		<p>
-			А uCoz:
-		</p>
-		<ul>
-			<li style="list-style-type: circle;">Только 15mb для каждого отдельного файла;</li>
-			<li style="list-style-type: circle;">Постоянно, но очень медленно, растущие 400mb;</li>
-			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
-		</ul>
-		<p>
-			И Mega:
-		</p>
-		<ul>
-			<li style="list-style-type: circle;">Ограниченный только свободным местом размер одного файла;</li>
-			<li style="list-style-type: circle;">50gb, расширяемые платно;</li>
-			<li style="list-style-type: circle;">НЕ прямые ссылки на файлы;</li>
-		</ul>
-		<p>
-			<b>Source-код всего сайта.</b><br>
-			Так как мы теперь используем GitHub, вы можете при желании посмотреть его перейдя по <a href="https://github.com/sziberov/eks.ru">ссылке</a>. И там же вы можете предлагать свои доработки кода, или идеи.
-		</p>
-	</div>
-	-->
-	
-	<div class="news" style="width:575px; float: left;">
-		<b>Новости</b>
-		<div id="news">
-		
-			<ul class="top">
-				<li id="data-tab_0" class="active"><span>Россия</span></li>
-				<li id="data-tab_1"><span>Украина</span></li>
-				<li id="data-tab_2"><span>Казахстан</span></li>
-				<!--
-				<li data-tab="2"><span>Экономика</span></li>
-				<li data-tab="3"><span>Политика</span></li>
-				<li data-tab="4"><span>Спорт</span></li>
-				<li data-tab="5"><span>Авто</span></li>
-				<li data-tab="6"><span>Общество</span></li>
-				-->
-			</ul>
-
-			<!--
-			<div class="more"><span>Еще</span><i></i></div>
-			<div class="mlist">
-				<li data-tab="7"><span>Технологии</span></li>
-				<li data-tab="8"><span>Происшествия</span></li>
-				<li data-tab="9"><span>Культура</span></li>
-				<li data-tab="10"><span>Здоровье</span></li>
-				<li data-tab="11"><span>Развлечения</span></li>
-			</div>
-			-->
-
-			<div class="watch">
-				<ul id="ti">
-					<div id="data-rss_0" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/russia.xml'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<div id="data-rss_1" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/ukraine.xml'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<div id="data-rss_2" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('https://ru.sputniknews.kz/export/rss2/archive/index.xml'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<script>
-						function updateNews() {
-							if ($("#data-tab_0").hasClass("active")) { $('#data-rss_0').show().siblings().hide() };
-							if ($("#data-tab_1").hasClass("active")) { $('#data-rss_1').show().siblings().hide() };
-							if ($("#data-tab_2").hasClass("active")) { $('#data-rss_2').show().siblings().hide() };
-						};
-						updateNews();
-						
-						$("ul.top").on('click', 'li', function() {
-							$(this).siblings().removeAttr("class");
-							$(this).addClass('active');
-							updateNews();
-						});
-					</script>
-				</ul>
-				<div class="news-bottom-note">Новостной блок на ресурсе EKS.RU является перечнем названий статей и новостных материалов, ссылки на которые автоматически генерируются RSS-агрегатором. Администрация ресурса EKS.RU не выбирает статьи из источников для новостей и не размещает ссылки на них вручную. Наличие на ресурсе ссылок на посторонние веб-сайты не означает, что администрация ресурса EKS.RU разделяет мнения, опубликованные на таких посторонних веб-сайтах.</div>
-			</div>
-			
-		</div>
-	</div>
-	
 	<div class="google-services">
 		<b>Сервисы Google</b>
 		<div id="google-services">
@@ -295,6 +189,110 @@ if (window.top != window.self) window.top.location = window.self.location;
 						</div>
 					</li>
 				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!--
+	<div id="fox_announcement" style="width:575px; float: left; font-size: 18px; text-align: justify; padding-top: 32px;">
+		<b>Уважаемые посетители EKS.RU,</b>
+		<p>
+			По всей видимости решение использовать <a href="http://www.ucoz.ru/">uCoz</a> или <a href="https://mega.nz/">mega.nz</a> для хостинга файлов было в корне ошибочным. В итоге на их место встал <a href="https://github.com/">GitHub</a>.
+		</p>
+		<p>
+			Он предоставляет:
+		</p>
+		<ul>
+			<li style="list-style-type: circle;">100mb для каждого отдельного файла;</li>
+			<li style="list-style-type: circle;">Неограниченное простанство в общем;</li>
+			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
+		</ul>
+		<p>
+			А uCoz:
+		</p>
+		<ul>
+			<li style="list-style-type: circle;">Только 15mb для каждого отдельного файла;</li>
+			<li style="list-style-type: circle;">Постоянно, но очень медленно, растущие 400mb;</li>
+			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
+		</ul>
+		<p>
+			И Mega:
+		</p>
+		<ul>
+			<li style="list-style-type: circle;">Ограниченный только свободным местом размер одного файла;</li>
+			<li style="list-style-type: circle;">50gb, расширяемые платно;</li>
+			<li style="list-style-type: circle;">НЕ прямые ссылки на файлы;</li>
+		</ul>
+		<p>
+			<b>Source-код всего сайта.</b><br>
+			Так как мы теперь используем GitHub, вы можете при желании посмотреть его перейдя по <a href="https://github.com/sziberov/eks.ru">ссылке</a>. И там же вы можете предлагать свои доработки кода, или идеи.
+		</p>
+	</div>
+	-->
+	
+	<div class="news" style="width:575px; float: left;">
+		<b>Новости</b>
+		<div id="news">
+			<ul class="top">
+				<li id="data-tab_0" class="active"><span>Россия</span></li>
+				<li id="data-tab_1"><span>Украина</span></li>
+				<li id="data-tab_2"><span>Казахстан</span></li>
+				<!--
+				<li data-tab="2"><span>Экономика</span></li>
+				<li data-tab="3"><span>Политика</span></li>
+				<li data-tab="4"><span>Спорт</span></li>
+				<li data-tab="5"><span>Авто</span></li>
+				<li data-tab="6"><span>Общество</span></li>
+				-->
+			</ul>
+
+			<!--
+			<div class="more"><span>Еще</span><i></i></div>
+			<div class="mlist">
+				<li data-tab="7"><span>Технологии</span></li>
+				<li data-tab="8"><span>Происшествия</span></li>
+				<li data-tab="9"><span>Культура</span></li>
+				<li data-tab="10"><span>Здоровье</span></li>
+				<li data-tab="11"><span>Развлечения</span></li>
+			</div>
+			-->
+
+			<div class="watch">
+				<ul id="ti">
+					<div id="data-rss_0" style="display: none;">
+						<?php 
+						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/russia.xml'); 
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_1" style="display: none;">
+						<?php 
+						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/ukraine.xml'); 
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_2" style="display: none;">
+						<?php 
+						$rss = simplexml_load_file('https://ru.sputniknews.kz/export/rss2/archive/index.xml'); 
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<script>
+						function updateNews() {
+							if ($("#data-tab_0").hasClass("active")) { $('#data-rss_0').show().siblings().hide() };
+							if ($("#data-tab_1").hasClass("active")) { $('#data-rss_1').show().siblings().hide() };
+							if ($("#data-tab_2").hasClass("active")) { $('#data-rss_2').show().siblings().hide() };
+						};
+						updateNews();
+						
+						$("ul.top").on('click', 'li', function() {
+							$(this).siblings().removeAttr("class");
+							$(this).addClass('active');
+							updateNews();
+						});
+					</script>
+				</ul>
+				<div class="news-bottom-note">Новостной блок на ресурсе EKS.RU является перечнем названий статей и новостных материалов, ссылки на которые автоматически генерируются RSS-агрегатором. Администрация ресурса EKS.RU не выбирает статьи из источников для новостей и не размещает ссылки на них вручную. Наличие на ресурсе ссылок на посторонние веб-сайты не означает, что администрация ресурса EKS.RU разделяет мнения, опубликованные на таких посторонних веб-сайтах.</div>
 			</div>
 		</div>
 	</div>
