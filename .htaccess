@@ -1,7 +1,4 @@
 AddDefaultCharset Off
-<IfModule dir_module>
-    DirectoryIndex index.php
-</IfModule>
 
 RewriteEngine On
 RewriteBase /
@@ -20,3 +17,5 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*?)/?$ $1.php [NC,L]
 
 ErrorDocument 404 /404.html
+
+Options -Indexes
