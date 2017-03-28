@@ -1,3 +1,4 @@
+Options -Indexes
 AddDefaultCharset Off
 
 RewriteEngine On
@@ -16,6 +17,6 @@ RewriteRule ^ %1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*?)/?$ $1.php [NC,L]
 
-ErrorDocument 404 /404.html
-
-Options -Indexes
+ErrorDocument 403 /server/403.php
+ErrorDocument 404 /server/404.php
+ErrorDocument 414 /server/414.php

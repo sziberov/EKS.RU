@@ -4,7 +4,7 @@
 <?php
 $query = trim(htmlspecialchars($_GET["s"]), " ");
 
-if(strlen($query)>0){
+if(strlen($query)>2 && strlen($query)<51){
 	echo '<title>Поиск "' . $query . '"</title>';
 } else {
 	echo '<title>Поиск</title>';
@@ -28,7 +28,7 @@ if (window.top != window.self) window.top.location = window.self.location;
 <link rel="image_src" href="/i/eks-3.png">
 </head>
 
-
+	
 <body onload="initBody()">
 <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
 <tr><td valign="top" style="height: 28px;">
@@ -56,8 +56,8 @@ if (window.top != window.self) window.top.location = window.self.location;
 	function check_length(name) {
 		var query = document.getElementById(name).value;
 
-		if (query.length < 4) {
-			alert('Поисковой запрос должен содержать минимум 4 символа!');
+		if (query.length < 3) {
+			alert('Поисковой запрос должен содержать минимум 3 символа!');
 		}
 	}
 </script>
@@ -66,7 +66,7 @@ if (window.top != window.self) window.top.location = window.self.location;
 	<div style="padding:16px">
 		<div style="position: relative; height: 40px;">
 			<div id="search_line">
-				<input type="text" name="s" value="<?php echo trim(htmlspecialchars($_GET["s"]), " "); ?>" autocomplete="off" id="search_text">
+				<input type="text" name="s" value="<?php echo trim(htmlspecialchars($_GET["s"]), " "); ?>" autocomplete="off" id="search_text" maxlength="50">
 				<div id="search_hint" style="display: none;"></div>
 			</div>
 			<input type="submit" value="поиск" class="button ex" id="search_button" min="3">
@@ -82,6 +82,12 @@ if (window.top != window.self) window.top.location = window.self.location;
 
 <div style="padding:16px">
 	<?php
+	if(strlen($query)>50){
+		echo '<p>Поисковой запрос содержит <b>слишком много символов</b>!</p>';
+	} else 
+	if(strlen($query)>0 && strlen($query)<3){
+		echo '<p>Поисковой запрос должен содержать <b>минимум 3 символа</b>!</p>';
+	} else 
 	if(strlen($query)>0){
 		echo '<p>Поиск "<b>' . $query . '</b>":</p>';
 	}
@@ -91,7 +97,7 @@ if (window.top != window.self) window.top.location = window.self.location;
 	<table width="100%" border="0" cellpadding="0" cellspacing="8" class="panel"><tbody>
 
 	<?php
-	if(strlen($query)>0){
+	if(strlen($query)>2 && strlen($query)<51){
 		include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
 		
 		foreach($phpfiles as $phpfile) {
