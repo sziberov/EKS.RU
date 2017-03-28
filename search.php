@@ -101,7 +101,7 @@ print $head;
 		foreach($phpfiles as $phpfile) {
 			$path = $root . "/show/" . basename($phpfile);
 
-			$paddedI = str_pad($i, 6, "0", STR_PAD_LEFT);
+			$paddedI = str_pad($i, 8, "0", STR_PAD_LEFT);
 			
 			if (stripos(check_query($path), $query) !== false || stripos(get_title($path), $query) !== false){
 				echo '<tr><td>';

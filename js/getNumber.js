@@ -51,7 +51,7 @@ function getNumber() {
 		$('#fox_err_1').show();
 		$('#key').addClass('fox_err');
 	} else {
-		var paddedKey = numberFormat(key, 6); // change '1' to '000001', etc.
+		var paddedKey = numberFormat(key, 8); // change '1' to '00000001', etc.
 		
 		$.ajax({
 			url:'./show/' + paddedKey + '.html',

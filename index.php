@@ -70,7 +70,7 @@ print $head;
         	<div class="fox_desc">Если вам известен номер объекта, вы можете перейти к нему заполнив поле ниже.</div>
 			
 			<div style="overflow: visible; float: right;">
-				<input id="key" type="text" value="" class="ex" autocomplete="off" placeholder="123456" maxlength="6" style="text-align:left">
+				<input id="key" type="text" value="" class="ex" autocomplete="off" placeholder="12345678" maxlength="8" style="text-align:left">
 				<button id="getButton" onclick="getNumber()" class="button ex" style="border-radius:0 3px 3px 0; float: left; width: 97px;">получить</button>
 			</div>
 			<span id="fox_err_1">Не введен номер объекта</span>
