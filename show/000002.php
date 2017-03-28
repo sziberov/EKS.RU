@@ -1,16 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html id="domain_software"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
+<html id="domain_software"><head>
 <title>Lightshot 5.4.0.1</title>
-<link href="/css/index.css" type="text/css" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="robots" content="nofollow">
 
-<meta http-equiv="content-language" content="ru">
-<script src="/js/domain_title.js" charset="utf-8" type="text/javascript"></script>
-<script src="/js/main.js" charset="utf-8" type="text/javascript"></script>
-<script src="/js/request.js" charset="utf-8" type="text/javascript"></script>
+<?php
+$head = file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/include/head.html");
+print $head;
+?>
+
+<meta name="title" content="Lightshot 5.4.0.1">
+<meta name="description" content="...">
+
 <script src="/js/swfobject.js"></script>
 <script src="/js/jquery-3.1.1.js" charset="utf-8" type="text/javascript"></script>
 <script src="/js/jquery-ui.js" charset="utf-8" type="text/javascript"></script>
@@ -32,11 +31,6 @@
 if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio + ';path=/';
 // if (window.top != window.self) window.top.location = window.self.location;
 </script>
-
-<meta name="title" content="Lightshot 5.4.0.1">
-<meta name="description" content="...">
-<meta property="og:image" content="/i/eks-3.png"/>
-<link rel="image_src" href="/i/eks-3.png">
 </head>
 
 <body onload="initBody()">
@@ -150,41 +144,7 @@ include($root . "/include/files_count.php");
 </td>
 </tr>
 
-<tr>
-	<?php $filepath = ("../" . $key . "/logo-landing.png"); $filename = end(explode('/', $filepath)); ?>
-	<td width="17"><img src="/i/i_disk.svg" border="0" height="17" width="17"></td>
-	<td><span class="small"><script>document.write($('#file_list tbody tr').length - 1)</script>.</span><br><?php echo '<a id="file_name"'; if (file_exists($filepath)) { echo 'href="' . $filepath . '"'; } echo 'title="' . $filename . '"></a>'; ?></td>
-		<?php include($root . "/include/file_info_php.php"); ?>
-		<script>
-			var url = new URL(window.location.origin + "/<?php echo $key ?>/logo-landing.png");
-			<?php include($root . "/include/file_info_js.html"); ?>
-		</script>
-	</td>
-</tr>
-
-<tr>
-	<?php $filepath = ("../" . $key . "/screenshot.jpg"); $filename = end(explode('/', $filepath)); ?>
-	<td width="17"><img src="/i/i_disk.svg" border="0" height="17" width="17"></td>
-	<td><span class="small"><script>document.write($('#file_list tbody tr').length - 1)</script>.</span><br><?php echo '<a id="file_name"'; if (file_exists($filepath)) { echo 'href="' . $filepath . '"'; } echo 'title="' . $filename . '"></a>'; ?></td>
-		<?php include($root . "/include/file_info_php.php"); ?>
-		<script>
-			var url = new URL(window.location.origin + "/<?php echo $key ?>/screenshot.jpg");
-			<?php include($root . "/include/file_info_js.html"); ?>
-		</script>
-	</td>
-</tr>
-
-<tr>
-	<?php $filepath = ("../" . $key . "/setup-lightshot.exe"); $filename = end(explode('/', $filepath)); ?>
-	<td width="17"><img src="/i/i_disk.svg" border="0" height="17" width="17"></td>
-	<td><span class="small"><script>document.write($('#file_list tbody tr').length - 1)</script>.</span><br><?php echo '<a id="file_name"'; if (file_exists($filepath)) { echo 'href="' . $filepath . '"'; } echo 'title="' . $filename . '"></a>'; ?></td>
-		<?php include($root . "/include/file_info_php.php"); ?>
-		<script>
-			var url = new URL(window.location.origin + "/<?php echo $key ?>/setup-lightshot.exe");
-			<?php include($root . "/include/file_info_js.html"); ?>
-		</script>
-	</td>
-</tr>
+<?php include($root . "/include/flist_gnrt.php"); ?>
 
 </tbody></table>
 <span class="small">Некоторые из ссылок представленных выше могут вести на сторонний ресурс, это необходимо для экономии места на основном хостинге.</span>

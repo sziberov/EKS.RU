@@ -1,9 +1,6 @@
 <?php
 $root = $_SERVER['DOCUMENT_ROOT'];
-$directory = $root . "/show/";
 $phpfiles = glob($directory . "*.php");
-
-$i = 1;
 
 function get_category($url) {
 	$str = file_get_contents($url);

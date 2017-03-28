@@ -1,8 +1,19 @@
 <?php
-$o = 0;
-
+$directory = $_SERVER['DOCUMENT_ROOT'] . "/show/";
 include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
-		
+
+$o = 0;
+$i = 1;
+//$opendir = opendir($directory);
+//while($file = readdir($opendir)){
+//	if($file == '.' || $file == '..' || is_dir($directory . $file)){
+//		continue;
+//	}
+//	$i++;
+//}
+//rsort($phpfiles);
+
+
 echo '<tr>';
 foreach($phpfiles as $phpfile) {
 	$path = $root . "/show/" . basename($phpfile);

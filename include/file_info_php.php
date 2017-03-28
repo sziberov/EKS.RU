@@ -5,9 +5,9 @@
 		$mime = mime_content_type($filepath);
 		if (strstr($mime, "video/")) {
 			echo '<td align="center" width="110">&nbsp;';
-			echo '<span class="r_button"><a data-index="0" class="fox-play-btn" href="' . $filepath . '" rel="nofollow" onclick="return false;">играть</a></span></td>';
+			echo '<span class="r_button"><a data-index="0" class="fox-play-btn" href="' . $filepath_relative . '" rel="nofollow" onclick="return false;">играть</a></span></td>';
 		} else if (strstr($mime, "image/")) {
-			echo '<td align="center" width="110">&nbsp;<script>document.write(\'<a href="' . $filepath . '" id="picture_\' + ($(\'#file_list tbody tr\').length - 2) + \'" onclick="return view(this, \' + ($(\'#file_list tbody tr\').length - 2) + \');">\')</script><img src="' . $filepath . '" border="0" style="max-height: 100px; max-width: 100px"></a><p><script>document.write(\'<a src="' . $filepath . '" id="picture_\' + ($(\'#file_list tbody tr\').length - 2) + \'" onclick="return view(this, \' + ($(\'#file_list tbody tr\').length - 2) + \');">\')</script></a></p></td>';
+			echo '<td align="center" width="110">&nbsp;<a href="' . $filepath_relative . '" id="picture_' . $i . '" onclick="return view(this, ' . $i . ');"><img src="' . $filepath_relative . '" border="0" style="max-height: 100px; max-width: 100px"></a><p><a src="' . $filepath_relative . '" id="picture_' . $i . '" onclick="return view(this, ' . $i . ');"></a></p></td>';
 		} else {
 			echo '<td align="center" width="110">&nbsp;</td>';
 		};
@@ -33,7 +33,7 @@
 		echo '</p>';
 		echo '<p>';
 			echo '<span class="r_button">';
-				echo '<a href="' . $filepath . '" rel="nofollow" download>загрузить</a>';
+				echo '<a href="' . $filepath_relative . '" rel="nofollow" download>загрузить</a>';
 			echo '</span>';
 			echo '<span class="r_button">';
 				echo '<script>';
