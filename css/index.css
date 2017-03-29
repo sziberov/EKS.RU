@@ -30,7 +30,8 @@ h5			{ font-size: 11pt; font-weight: bold; margin: 0; }
 h6			{ font-size: 10pt; font-weight: bold; margin: 0; }
 strong			{ font-size: 10pt; font-weight: bold; }
 dd			{ font-size: 8pt; font-style: italic; }
-q			{ /*font-style: italic;*/ quotes: '«' '»'; }
+q			{ /*font-style: italic;*/ quotes: '«' '»';}
+#fox_body q { quotes: '“' '”';}
 .title			{ font-size: 16pt; font-weight: normal; color: #888; }
 .modify_time		{ color: #888; }
 .stat			{ font-size: 8pt; border-bottom: 1px dashed #ccc; color: #888; }

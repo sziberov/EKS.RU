@@ -81,6 +81,219 @@ print $head;
 
 <div id="fox_body" style="width:964px; margin:0 auto; overflow:auto;">
 
+	<!--
+	<div id="fox_announcement" style="width:575px; float: left; font-size: 18px; text-align: justify; padding-top: 32px;">
+		<b>Уважаемые посетители EKS.RU,</b>
+		<p>
+			По всей видимости решение использовать <a href="http://www.ucoz.ru/">uCoz</a> или <a href="https://mega.nz/">mega.nz</a> для хостинга файлов было в корне ошибочным. В итоге на их место встал <a href="https://github.com/">GitHub</a>.
+		</p>
+		<p>
+			Он предоставляет:
+		</p>
+		<ul>
+			<li style="list-style-type: circle;">100mb для каждого отдельного файла;</li>
+			<li style="list-style-type: circle;">Неограниченное простанство в общем;</li>
+			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
+		</ul>
+		<p>
+			А uCoz:
+		</p>
+		<ul>
+			<li style="list-style-type: circle;">Только 15mb для каждого отдельного файла;</li>
+			<li style="list-style-type: circle;">Постоянно, но очень медленно, растущие 400mb;</li>
+			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
+		</ul>
+		<p>
+			И Mega:
+		</p>
+		<ul>
+			<li style="list-style-type: circle;">Ограниченный только свободным местом размер одного файла;</li>
+			<li style="list-style-type: circle;">50gb, расширяемые платно;</li>
+			<li style="list-style-type: circle;">НЕ прямые ссылки на файлы;</li>
+		</ul>
+		<p>
+			<b>Source-код всего сайта.</b><br>
+			Так как мы теперь используем GitHub, вы можете при желании посмотреть его перейдя по <a href="https://github.com/sziberov/eks.ru">ссылке</a>. И там же вы можете предлагать свои доработки кода, или идеи.
+		</p>
+	</div>
+	-->
+
+	<div style="width: 335px; float: right; margin: 32px 0 0">
+		<!-- Gismeteo informer 1 START -->
+		<link rel="stylesheet" type="text/css" href="https://s1.gismeteo.ua/static/css/informer2/gs_informerClient.min.css">
+		<div id="gsInformerID-d521spr2OQJ8m2" class="gsInformer" style="width:302px;height:225px">
+		  <div class="gsIContent">
+		   <div id="cityLink">
+			 <a href="https://www.gismeteo.ua/weather-moscow-4368/" target="_blank">Погода в Москве</a>
+		   </div>
+		   <div class="gsLinks">
+			</div>
+		  </div>
+		</div>
+		<script src="https://www.gismeteo.ua/ajax/getInformer/?hash=d521spr2OQJ8m2" type="text/javascript"></script>
+		<!-- Gismeteo informer 1 END -->
+
+		<!-- Gismeteo informer 2 START -->
+		<link rel="stylesheet" type="text/css" href="https://s1.gismeteo.ua/static/css/informer2/gs_informerClient.min.css">
+		<div id="gsInformerID-3cmVE751oBJg44" class="gsInformer" style="width:302px;height:173px">
+		  <div class="gsIContent">
+		   <div id="cityLink">
+			 <a href="https://www.gismeteo.ua/weather-astana-5164/" target="_blank">Погода в Астане</a>
+		   <br />
+		<a href="https://www.gismeteo.ua/weather-minsk-4248/" target="_blank">Погода в Минске</a>
+		   <br />
+		<a href="https://www.gismeteo.ua/weather-kyiv-4944/" target="_blank">Погода в Киеве</a>
+		   <br />
+		<a href="https://www.gismeteo.ua/weather-warsaw-3196/" target="_blank">Погода в Варшаве</a>
+		   <br />
+		<a href="https://www.gismeteo.ua/weather-berlin-2391/" target="_blank">Погода в Берлине</a>
+		   </div>
+		   <div class="gsLinks">
+			 <table>
+			   <tr>
+				 <td>
+				   <div class="leftCol">
+					 <a href="https://www.gismeteo.ua" target="_blank">
+					   <img alt="Gismeteo" title="Gismeteo" src="https://s1.gismeteo.ua/static/images/informer2/logo-mini2.png" align="absmiddle" border="0" />
+					   <span>Gismeteo</span>
+					 </a>
+				   </div>
+				   <div class="rightCol">
+					 <a href="https://www.gismeteo.ua" target="_blank">Погода на 2 недели</a>
+				   </div>
+				   </td>
+				</tr>
+			  </table>
+			</div>
+		  </div>
+		</div>
+		<script src="https://www.gismeteo.ua/ajax/getInformer/?hash=3cmVE751oBJg44" type="text/javascript"></script>
+		<!-- Gismeteo informer 2 END -->
+	</div>
+	
+	<div class="news" style="width:575px; float: left;">
+		<b>Новости</b>
+		<div id="news">
+			<ul class="top">
+				<li id="data-tab_0" class="active"><span>Россия</span></li>
+				<li id="data-tab_1"><span>Казахстан</span></li>
+				<li id="data-tab_2"><span>Беларусь</span></li>
+				<li id="data-tab_3"><span>Украина</span></li>
+				<li id="data-tab_4"><span>Польша</span></li>
+				<li id="data-tab_5"><span>Германия</span></li>
+				<!--
+				<li data-tab="2"><span>Экономика</span></li>
+				<li data-tab="3"><span>Политика</span></li>
+				<li data-tab="4"><span>Спорт</span></li>
+				<li data-tab="5"><span>Авто</span></li>
+				<li data-tab="6"><span>Общество</span></li>
+				-->
+			</ul>
+
+			<!--
+			<div class="more"><span>Еще</span><i></i></div>
+			<div class="mlist">
+				<li data-tab="7"><span>Технологии</span></li>
+				<li data-tab="8"><span>Происшествия</span></li>
+				<li data-tab="9"><span>Культура</span></li>
+				<li data-tab="10"><span>Здоровье</span></li>
+				<li data-tab="11"><span>Развлечения</span></li>
+			</div>
+			-->
+
+			<div class="watch">
+				<ul id="ti">
+					<?php require('/include/parse_engine.inc'); ?>
+					<div id="data-rss_0" style="display: none;">
+						<?php 
+						$feed = new SimplePie();
+						$feed->set_feed_url(array(
+							'http://k.img.com.ua/rss/ru/russia.xml',
+							'http://www.vesti.ru/vesti.rss',
+							'https://lenta.ru/rss', 
+							'https://russian.rt.com/rss'
+						));
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_1" style="display: none;">
+						<?php 
+						$feed = new SimplePie();
+						$feed->set_feed_url(array(
+							'https://ru.sputniknews.kz/export/rss2/archive/index.xml', 
+							'https://forbes.kz/rss/news'
+						));
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_2" style="display: none;">
+						<?php 
+						$feed = new SimplePie();
+						$feed->set_feed_url(array(
+							'http://naviny.by/rss/all.xml', 
+							'https://news.tut.by/rss/all.rss'
+						));
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_3" style="display: none;">
+						<?php 
+						$feed = new SimplePie();
+						$feed->set_feed_url(array(
+							'http://k.img.com.ua/rss/ru/ukraine.xml', 
+							'http://tsn.ua/rss/ukraine'
+						));
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_4" style="display: none;">
+						<?php 
+						$feed = new SimplePie();
+						$feed->set_feed_url(array(
+							'https://news.yandex.ru/Poland/index.rss', 
+							/*'http://www.radiopolsha.pl/Rss/60fc19c2-8b53-4e3b-9e5a-083b1a1117b0', 
+							'http://www.radiopolsha.pl/Rss/27b49742-467e-4969-a21a-b4d06e9b45e0',
+							'http://www.radiopolsha.pl/Rss/7f484e70-46a9-455e-a959-ebaa4e45284f',
+							'http://www.radiopolsha.pl/Rss/6a7ea344-0641-47a2-9dab-fdd73f51d4c7',
+							'http://www.radiopolsha.pl/Rss/32d5353a-4284-4e42-b0ee-9ce2288aa2c4'*/
+						));
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+					<div id="data-rss_5" style="display: none;">
+						<?php 
+						$feed = new SimplePie();
+						$feed->set_feed_url(array(
+							'http://gordonua.com/xml/rss_tags/germanija.html',
+							/*'https://news.yandex.ru/Germany/index.rss'*/
+						));
+						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
+						?>
+					</div>
+
+					<script>
+						function updateNews() {
+							if ($("#data-tab_0").hasClass("active")) { $('#data-rss_0').show().siblings().hide() };
+							if ($("#data-tab_1").hasClass("active")) { $('#data-rss_1').show().siblings().hide() };
+							if ($("#data-tab_2").hasClass("active")) { $('#data-rss_2').show().siblings().hide() };
+							if ($("#data-tab_3").hasClass("active")) { $('#data-rss_3').show().siblings().hide() };
+							if ($("#data-tab_4").hasClass("active")) { $('#data-rss_4').show().siblings().hide() };
+							if ($("#data-tab_5").hasClass("active")) { $('#data-rss_5').show().siblings().hide() };
+						};
+						updateNews();
+						
+						$("ul.top").on('click', 'li', function() {
+							$(this).siblings().removeAttr("class");
+							$(this).addClass('active');
+							updateNews();
+						});
+					</script>
+				</ul>
+				<div class="news-bottom-note">Новостной блок на ресурсе EKS.RU является перечнем названий статей и новостных материалов, ссылки на которые автоматически генерируются RSS-агрегатором. Администрация ресурса EKS.RU не выбирает статьи из источников для новостей и не размещает ссылки на них вручную. Наличие на ресурсе ссылок на посторонние веб-сайты не означает, что администрация ресурса EKS.RU разделяет мнения, опубликованные на таких посторонних веб-сайтах.</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="google-services">
 		<b>Сервисы Google</b>
 		<div id="google-services">
@@ -180,126 +393,6 @@ print $head;
 			</div>
 		</div>
 	</div>
-
-	<!--
-	<div id="fox_announcement" style="width:575px; float: left; font-size: 18px; text-align: justify; padding-top: 32px;">
-		<b>Уважаемые посетители EKS.RU,</b>
-		<p>
-			По всей видимости решение использовать <a href="http://www.ucoz.ru/">uCoz</a> или <a href="https://mega.nz/">mega.nz</a> для хостинга файлов было в корне ошибочным. В итоге на их место встал <a href="https://github.com/">GitHub</a>.
-		</p>
-		<p>
-			Он предоставляет:
-		</p>
-		<ul>
-			<li style="list-style-type: circle;">100mb для каждого отдельного файла;</li>
-			<li style="list-style-type: circle;">Неограниченное простанство в общем;</li>
-			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
-		</ul>
-		<p>
-			А uCoz:
-		</p>
-		<ul>
-			<li style="list-style-type: circle;">Только 15mb для каждого отдельного файла;</li>
-			<li style="list-style-type: circle;">Постоянно, но очень медленно, растущие 400mb;</li>
-			<li style="list-style-type: circle;">Прямые ссылки на файлы;</li>
-		</ul>
-		<p>
-			И Mega:
-		</p>
-		<ul>
-			<li style="list-style-type: circle;">Ограниченный только свободным местом размер одного файла;</li>
-			<li style="list-style-type: circle;">50gb, расширяемые платно;</li>
-			<li style="list-style-type: circle;">НЕ прямые ссылки на файлы;</li>
-		</ul>
-		<p>
-			<b>Source-код всего сайта.</b><br>
-			Так как мы теперь используем GitHub, вы можете при желании посмотреть его перейдя по <a href="https://github.com/sziberov/eks.ru">ссылке</a>. И там же вы можете предлагать свои доработки кода, или идеи.
-		</p>
-	</div>
-	-->
-	
-	<div class="news" style="width:575px; float: left;">
-		<b>Новости</b>
-		<div id="news">
-			<ul class="top">
-				<li id="data-tab_0" class="active"><span>Россия</span></li>
-				<li id="data-tab_1"><span>Казахстан</span></li>
-				<li id="data-tab_2"><span>Украина</span></li>
-				<li id="data-tab_3"><span>Польша</span></li>
-				<li id="data-tab_4"><span>Германия</span></li>
-				<!--
-				<li data-tab="2"><span>Экономика</span></li>
-				<li data-tab="3"><span>Политика</span></li>
-				<li data-tab="4"><span>Спорт</span></li>
-				<li data-tab="5"><span>Авто</span></li>
-				<li data-tab="6"><span>Общество</span></li>
-				-->
-			</ul>
-
-			<!--
-			<div class="more"><span>Еще</span><i></i></div>
-			<div class="mlist">
-				<li data-tab="7"><span>Технологии</span></li>
-				<li data-tab="8"><span>Происшествия</span></li>
-				<li data-tab="9"><span>Культура</span></li>
-				<li data-tab="10"><span>Здоровье</span></li>
-				<li data-tab="11"><span>Развлечения</span></li>
-			</div>
-			-->
-
-			<div class="watch">
-				<ul id="ti">
-					<div id="data-rss_0" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/russia.xml'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<div id="data-rss_1" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('https://ru.sputniknews.kz/export/rss2/archive/index.xml'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<div id="data-rss_2" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('http://k.img.com.ua/rss/ru/ukraine.xml'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<div id="data-rss_3" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('https://news.yandex.ru/Poland/index.rss'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<div id="data-rss_4" style="display: none;">
-						<?php 
-						$rss = simplexml_load_file('http://gordonua.com/xml/rss_tags/germanija.html'); 
-						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
-						?>
-					</div>
-					<script>
-						function updateNews() {
-							if ($("#data-tab_0").hasClass("active")) { $('#data-rss_0').show().siblings().hide() };
-							if ($("#data-tab_1").hasClass("active")) { $('#data-rss_1').show().siblings().hide() };
-							if ($("#data-tab_2").hasClass("active")) { $('#data-rss_2').show().siblings().hide() };
-							if ($("#data-tab_3").hasClass("active")) { $('#data-rss_3').show().siblings().hide() };
-							if ($("#data-tab_4").hasClass("active")) { $('#data-rss_4').show().siblings().hide() };
-						};
-						updateNews();
-						
-						$("ul.top").on('click', 'li', function() {
-							$(this).siblings().removeAttr("class");
-							$(this).addClass('active');
-							updateNews();
-						});
-					</script>
-				</ul>
-				<div class="news-bottom-note">Новостной блок на ресурсе EKS.RU является перечнем названий статей и новостных материалов, ссылки на которые автоматически генерируются RSS-агрегатором. Администрация ресурса EKS.RU не выбирает статьи из источников для новостей и не размещает ссылки на них вручную. Наличие на ресурсе ссылок на посторонние веб-сайты не означает, что администрация ресурса EKS.RU разделяет мнения, опубликованные на таких посторонних веб-сайтах.</div>
-			</div>
-		</div>
-	</div>
 	
 </div>
 
@@ -319,8 +412,6 @@ print $head;
 	</tbody></table>
 </div>
 -->
-
-
 </td></tr>
 <tr><td valign="bottom" height="32">
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/include/footer.html"); ?>
