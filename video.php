@@ -21,6 +21,13 @@ print $head;
 </td></tr>
 <tr><td valign="top" style="padding: 16px;" id="body_element">
 
+<?php
+$directory = $_SERVER['DOCUMENT_ROOT'] . "/show/";
+include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
+
+$category = 'domain_video';
+?>
+
 <!--<a href="/Видео"><h2>Видео</h2></a>-->
 <h1>Видео</h1><br>
 <p></p>

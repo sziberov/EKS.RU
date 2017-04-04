@@ -10,6 +10,14 @@ function get_category($url) {
 	}
 }
 
+foreach($phpfiles as $key => $val) {
+	$path = $directory . basename($val);
+	
+	if (get_category($path) == $category) {
+		$cat_objects[$key] = $val;
+	}
+}
+		
 function check_query($url) {
 	$str = file_get_contents($url);
 	if(strlen($str)>0){
