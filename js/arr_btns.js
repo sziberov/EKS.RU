@@ -23,11 +23,11 @@ $.ajax({
 	type:'HEAD',
 	error: function()
 	{
-		document.getElementById('arr_btns').insertAdjacentHTML('afterbegin', '<a id="arr_l"><img src="../i/arr_lg.gif" width="20" height="20" border="0" alt="вы находитесь на первой странице" title="вы находитесь на первой странице"></a>');
+		document.getElementById('arr_btns').insertAdjacentHTML('afterbegin', '<a id="arr_l"><img src="../t3/arr_lg.gif" width="20" height="20" border="0" alt="вы находитесь на первой странице" title="вы находитесь на первой странице"></a>');
 	},
 	success: function()
 	{
-		document.getElementById('arr_btns').insertAdjacentHTML('afterbegin', '<a id="arr_l" href="./' + leftPage + '.html"><img src="../i/arr_l.gif" width="20" height="20" border="0" alt="перейти на предыдущую страницу, Ctrl ←" title="перейти на предыдущую страницу, Ctrl ←"></a>');
+		document.getElementById('arr_btns').insertAdjacentHTML('afterbegin', '<a id="arr_l" href="./' + leftPage + '.html"><img src="../t3/arr_l.gif" width="20" height="20" border="0" alt="перейти на предыдущую страницу, Ctrl ←" title="перейти на предыдущую страницу, Ctrl ←"></a>');
 	}
 });
 
@@ -36,11 +36,11 @@ $.ajax({
 	type:'HEAD',
 	error: function()
 	{
-		document.getElementById('arr_btns').insertAdjacentHTML('beforeend', '<a id="arr_l"><img src="../i/arr_rg.gif" width="20" height="20" border="0" alt="вы находитесь на последней странице" title="вы находитесь на последней странице"></a>');
+		document.getElementById('arr_btns').insertAdjacentHTML('beforeend', '<a id="arr_l"><img src="../t3/arr_rg.gif" width="20" height="20" border="0" alt="вы находитесь на последней странице" title="вы находитесь на последней странице"></a>');
 	},
 	success: function()
 	{
-		document.getElementById('arr_btns').insertAdjacentHTML('beforeend', '<a id="arr_r" href="./' + rightPage + '.html"><img src="../i/arr_r.gif" width="20" height="20" border="0" alt="перейти на следующую страницу, Ctrl →" title="перейти на следующую страницу, Ctrl →"></a>');
+		document.getElementById('arr_btns').insertAdjacentHTML('beforeend', '<a id="arr_r" href="./' + rightPage + '.html"><img src="../t3/arr_r.gif" width="20" height="20" border="0" alt="перейти на следующую страницу, Ctrl →" title="перейти на следующую страницу, Ctrl →"></a>');
 	}
 });
 
