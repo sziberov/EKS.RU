@@ -57,13 +57,13 @@ print $head;
 					echo '<td class="small">Ctrl&nbsp;→</td>';
 					//-----
 					if (!isset($current)) { 
-						if ($next < $max_pages) { echo '<td><a href="software?p='.($next+1).'">'.($next+1).'</a></td>'; }
-						if ($next2 < $max_pages) { echo '<td><a href="software?p='.($next2+1).'">'.($next2+1).'</a></td>'; }
-						if ($next3 < $max_pages) { echo '<td><a href="software?p='.($next3+1).'">'.($next3+1).'</a></td>'; }
+						if ($next <= $max_pages) { echo '<td><a href="software?p='.($next+1).'">'.($next+1).'</a></td>'; }
+						if ($next2 <= $max_pages) { echo '<td><a href="software?p='.($next2+1).'">'.($next2+1).'</a></td>'; }
+						if ($next3 <= $max_pages) { echo '<td><a href="software?p='.($next3+1).'">'.($next3+1).'</a></td>'; }
 					} else {
-						if ($next < $max_pages) { echo '<td><a href="software?p='.($next).'">'.($next).'</a></td>'; }
-						if ($next2 < $max_pages) { echo '<td><a href="software?p='.($next2).'">'.($next2).'</a></td>'; }
-						if ($next3 < $max_pages) { echo '<td><a href="software?p='.($next3).'">'.($next3).'</a></td>'; }
+						if ($next <= $max_pages) { echo '<td><a href="software?p='.($next).'">'.($next).'</a></td>'; }
+						if ($next2 <= $max_pages) { echo '<td><a href="software?p='.($next2).'">'.($next2).'</a></td>'; }
+						if ($next3 <= $max_pages) { echo '<td><a href="software?p='.($next3).'">'.($next3).'</a></td>'; }
 					}
 					//-----
 					echo '<td><a href="software?p='.$max_pages.'">';
@@ -76,9 +76,9 @@ print $head;
 						echo '<img src="/t3/arr_s.gif" border="0" width="20" height="20" title="перейти на первую страницу">';
 					echo '</a></td>';
 					//-----
-					if ($prev3 > 0) { echo '<td><a href="software?p='.($prev3).'">'.($prev3).'</a></td>'; }
-					if ($prev2 > 0) { echo '<td><a href="software?p='.($prev2).'">'.($prev2).'</a></td>'; }
-					if ($prev > 0) { echo '<td><a href="software?p='.($prev).'">'.($prev).'</a></td>'; }
+					if ($prev3 >= 1) { echo '<td><a href="software?p='.($prev3).'">'.($prev3).'</a></td>'; }
+					if ($prev2 >= 1) { echo '<td><a href="software?p='.($prev2).'">'.($prev2).'</a></td>'; }
+					if ($prev >= 1) { echo '<td><a href="software?p='.($prev).'">'.($prev).'</a></td>'; }
 					//-----
 					echo '<td class="small">← Ctrl</td>';
 					echo '<td><a id="browse_prev" href="software?p='.($prev).'">';
@@ -92,9 +92,9 @@ print $head;
 					echo '</a></td>';
 					echo '<td class="small">Ctrl&nbsp;→</td>';
 					//-----
-					if ($next < $max_pages) { echo '<td><a href="software?p='.($next).'">'.($next).'</a></td>'; }
-					if ($next2 < $max_pages) { echo '<td><a href="software?p='.($next2).'">'.($next2).'</a></td>'; }
-					if ($next3 < $max_pages) { echo '<td><a href="software?p='.($next3).'">'.($next3).'</a></td>'; }
+					if ($next <= $max_pages) { echo '<td><a href="software?p='.($next).'">'.($next).'</a></td>'; }
+					if ($next2 <= $max_pages) { echo '<td><a href="software?p='.($next2).'">'.($next2).'</a></td>'; }
+					if ($next3 <= $max_pages) { echo '<td><a href="software?p='.($next3).'">'.($next3).'</a></td>'; }
 					//-----
 					echo '<td><a href="software?p='.$max_pages.'">';
 						echo '<img src="/t3/arr_e.gif" border="0" width="20" height="20" title="перейти на последнюю страницу, всего позиций - '.$max_pages.'">';
@@ -106,9 +106,9 @@ print $head;
 						echo '<img src="/t3/arr_s.gif" border="0" width="20" height="20" title="перейти на первую страницу">';
 					echo '</a></td>';
 					//-----
-					if ($prev3 > 0) { echo '<td><a href="software?p='.($prev3).'">'.($prev3).'</a></td>'; }
-					if ($prev2 > 0) { echo '<td><a href="software?p='.($prev2).'">'.($prev2).'</a></td>'; }
-					if ($prev > 0) { echo '<td><a href="software?p='.($prev).'">'.($prev).'</a></td>'; }
+					if ($prev3 >= 1) { echo '<td><a href="software?p='.($prev3).'">'.($prev3).'</a></td>'; }
+					if ($prev2 >= 1) { echo '<td><a href="software?p='.($prev2).'">'.($prev2).'</a></td>'; }
+					if ($prev >= 1) { echo '<td><a href="software?p='.($prev).'">'.($prev).'</a></td>'; }
 					//-----
 					echo '<td class="small">← Ctrl</td>';
 					echo '<td><a id="browse_prev" href="software?p='.($prev).'">';
@@ -146,18 +146,6 @@ print $head;
 			</tr>
 		</tbody>
 	</table>
-	<script>
-		$(document).keydown(function(e){
-			if (e.ctrlKey) {
-				if (e.keyCode == 37) {
-					$('#arr_l')[0].click();
-				}
-				else if (e.keyCode == 39) {
-					$('#arr_r')[0].click();
-				}
-			}
-		});
-	</script>
 <p></p>
 <!--Nav arrows top-->
 	
