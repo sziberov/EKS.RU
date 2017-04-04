@@ -203,7 +203,9 @@ print $head;
 
 			<div class="watch">
 				<ul id="ti">
-					<?php require('/include/parse_engine.inc'); ?>
+					<?php 
+					require('/plugin/simplepie/autoloader.php'); 
+					?>
 					<div id="data-rss_0" style="display: none;">
 						<?php 
 						$feed = new SimplePie();
@@ -251,11 +253,11 @@ print $head;
 						$feed = new SimplePie();
 						$feed->set_feed_url(array(
 							'https://news.yandex.ru/Poland/index.rss', 
-							/*'http://www.radiopolsha.pl/Rss/60fc19c2-8b53-4e3b-9e5a-083b1a1117b0', 
+							'http://www.radiopolsha.pl/Rss/60fc19c2-8b53-4e3b-9e5a-083b1a1117b0', 
 							'http://www.radiopolsha.pl/Rss/27b49742-467e-4969-a21a-b4d06e9b45e0',
 							'http://www.radiopolsha.pl/Rss/7f484e70-46a9-455e-a959-ebaa4e45284f',
 							'http://www.radiopolsha.pl/Rss/6a7ea344-0641-47a2-9dab-fdd73f51d4c7',
-							'http://www.radiopolsha.pl/Rss/32d5353a-4284-4e42-b0ee-9ce2288aa2c4'*/
+							'http://www.radiopolsha.pl/Rss/32d5353a-4284-4e42-b0ee-9ce2288aa2c4'
 						));
 						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
 						?>
@@ -265,7 +267,7 @@ print $head;
 						$feed = new SimplePie();
 						$feed->set_feed_url(array(
 							'http://gordonua.com/xml/rss_tags/germanija.html',
-							/*'https://news.yandex.ru/Germany/index.rss'*/
+							'https://news.yandex.ru/Germany/index.rss'
 						));
 						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
 						?>

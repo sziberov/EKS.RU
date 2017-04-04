@@ -2,17 +2,10 @@
 $directory = $_SERVER['DOCUMENT_ROOT'] . "/show/";
 include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
 
+$i = count($phpfiles);
 $o = 0;
-$i = 1;
-//$opendir = opendir($directory);
-//while($file = readdir($opendir)){
-//	if($file == '.' || $file == '..' || is_dir($directory . $file)){
-//		continue;
-//	}
-//	$i++;
-//}
-//rsort($phpfiles);
 
+rsort($phpfiles);
 
 echo '<tr>';
 foreach($phpfiles as $phpfile) {
@@ -22,9 +15,9 @@ foreach($phpfiles as $phpfile) {
 	
 	if (get_category($path) == $category) {
 		echo '<td align="center" valign="center"><a href="/show/' . $paddedI . '"><img src="' . get_icon($path) . '" style="max-height: 200px; max-width: 200px" border="0"></a><p><a href="/show/' . $paddedI . '"><b>' . get_title($path) . '</b></a><br><small>' . get_date($path) . '</small></td>' . PHP_EOL;
+		$o++;
 	}
-	$i++;
-	$o++;
+	$i--;
 	if ($o >= 4) { 
 		echo '</tr>';
 		$o = 0;

@@ -57,7 +57,7 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top">
 <img id="poster" alt="Lightshot 5.4.0.1" src="/<?php echo $key ?>/logo-landing.png" style="margin: 0 16px 8px 0; max-height: 512px; max-width: 512px;" title="Lightshot 5.4.0.1" align="left" border="0">
 <h1>Lightshot 5.4.0.1</h1><br>
-<small id="upload_time">19 января 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
+<small id="upload_time">13 февраля 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
 <p>
 </p>
 <div id="post">

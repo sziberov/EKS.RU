@@ -27,9 +27,6 @@ Disallow: /shop/checkout/
 Disallow: /shop/user/
 Disallow: /*0-*-0-17$
 Disallow: /*-0-0-
-Disallow: /header.html
-Disallow: /footer.html
-Disallow: /*/header.html
-Disallow: /*/footer.html
+Disallow: /include/*
 
 Sitemap: http://eks.my1.ru/sitemap.xml

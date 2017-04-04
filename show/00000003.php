@@ -57,7 +57,7 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top">
 <img id="poster" alt="FastStone Capture 8.4 RePack (& Portable) by D!akov" src="/<?php echo $key ?>/0_13273f_5375e125_orig.jpg" style="margin: 0 16px 8px 0; max-height: 512px; max-width: 512px;" title="FastStone Capture 8.4 RePack (& Portable) by D!akov" align="left" border="0">
 <h1>FastStone Capture 8.4 RePack (& Portable) by D!akov</h1><br>
-<small id="upload_time">19 января 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
+<small id="upload_time">15 февраля 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
 <p>
 </p>
 <div id="post">

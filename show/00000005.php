@@ -57,7 +57,7 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top">
 <img id="poster" alt="Speccy 1.30.730 + Portable + Repack" src="/<?php echo $key ?>/speccy.png" style="margin: 0 16px 8px 0; max-height: 512px; max-width: 512px;" title="Speccy 1.30.730 + Portable + Repack" align="left" border="0">
 <h1>Speccy 1.30.730 + Portable + Repack</h1><br>
-<small id="upload_time">19 января 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
+<small id="upload_time">3 марта 2017<span class="modify_time">, не редактировалось <!--<script src="/js/lastmodified.js">--></span></small>
 <p>
 </p>
 <div id="post">

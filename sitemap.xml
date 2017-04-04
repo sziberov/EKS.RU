@@ -6,36 +6,45 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>http://eks.my1.ru/index.html</loc>
+  <loc>http://eksru.net16.net</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/software.html</loc>
+  <loc>http://eksru.net16.net/software</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000001.html</loc>
+  <loc>http://eksru.net16.net/show/00000001</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000002.html</loc>
+  <loc>http://eksru.net16.net/show/00000002</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000003.html</loc>
+  <loc>http://eksru.net16.net/show/00000003</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000004.html</loc>
+  <loc>http://eksru.net16.net/show/00000004</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000005.html</loc>
+  <loc>http://eksru.net16.net/show/00000005</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000006.html</loc>
+  <loc>http://eksru.net16.net/show/00000006</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000007.html</loc>
+  <loc>http://eksru.net16.net/show/00000007</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000008.html</loc>
+  <loc>http://eksru.net16.net/show/00000008</loc>
 </url>
 <url>
-  <loc>http://eks.my1.ru/show/000009.html</loc>
+  <loc>http://eksru.net16.net/show/00000009</loc>
+</url>
+<url>
+  <loc>http://eksru.net16.net/show/00000010</loc>
+</url>
+<url>
+  <loc>http://eksru.net16.net/show/00000011</loc>
+</url>
+<url>
+  <loc>http://eksru.net16.net/show/00000012</loc>
 </url>
 </urlset>

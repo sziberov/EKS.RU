@@ -120,8 +120,10 @@ print $head;
 					echo '<small>' . get_date($path) . '</small>';
 				echo '</p>';
 				echo '<p>';
-					echo get_main_info($path). '<br>';
-					echo '...';
+					if (get_main_info($path)) {
+						echo get_main_info($path) . '<br>';
+						echo '...';
+					}
 				echo '</p>';
 				echo '<p>';
 					$dir = $root . "/load/" . $paddedI;
