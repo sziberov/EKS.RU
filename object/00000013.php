@@ -2,8 +2,6 @@
 
 <title>DAEMON Tools Lite 5.0.1.0407 RePack by KpoJIuK</title>	
 
-<a href="/software"><h2>Программы</h2></a>
-
 <img id="poster" src="DAEMON Tools Lite.png">
 
 <h1 id="page_h1">DAEMON Tools Lite 5.0.1.0407 RePack by KpoJIuK</h1><br>

@@ -50,6 +50,15 @@ function get_h1($url) {
 	}
 }
 
+function get_h2($url) {
+	if(get_category($url) == 'domain_software'){
+		return '<a href="/software"><h2>Программы</h2></a>';
+	} else
+	if(get_category($url) == 'domain_video'){
+		return '<a href="/video"><h2>Видео</h2></a>';
+	}
+}
+
 function get_title($url) {
 	$str = file_get_contents($url);
 	if(strlen($str)>0){

@@ -44,8 +44,7 @@ print $head;
 <table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td valign="top">
 
 <?php
-$page_h1 = get_h1($file);
-echo '<a href="/'.$_SERVER['QUERY_STRING'].'"><h1 id="page_h1">'.$page_h1.'</h1></a><br>';
+echo '<a href="/'.$_SERVER['QUERY_STRING'].'"><h1 id="page_h1">'.get_h1($file).'</h1></a><br>';
 ?>
 
 </td><td width="120" valign="top" align="right"></td></tr></tbody></table>

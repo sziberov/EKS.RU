@@ -10,7 +10,7 @@ var numberFormat = function(number, width) { // useful for padding numbers with 
 
 var url = window.location.pathname;
 var filename = url.substring(url.lastIndexOf('/')+1);
-var name = filename.split('.html')[0];
+var name = filename.split('.php')[0];
 
 var left = parseInt(name) + parseInt(1);
 var leftPage = numberFormat(left, 8);
@@ -19,7 +19,7 @@ var right = parseInt(name) - parseInt(1);
 var rightPage = numberFormat(right, 8);
 	
 $.ajax({
-	url:'./' + leftPage + '.html',
+	url:'./' + leftPage + '.php',
 	type:'HEAD',
 	error: function()
 	{
@@ -27,12 +27,12 @@ $.ajax({
 	},
 	success: function()
 	{
-		document.getElementById('arr_btns').insertAdjacentHTML('afterbegin', '<a id="arr_l" href="./' + leftPage + '.html"><img src="../t3/arr_l.gif" width="20" height="20" border="0" alt="перейти на предыдущую страницу, Ctrl ←" title="перейти на предыдущую страницу, Ctrl ←"></a>');
+		document.getElementById('arr_btns').insertAdjacentHTML('afterbegin', '<a id="arr_l" href="./' + leftPage + '.php"><img src="../t3/arr_l.gif" width="20" height="20" border="0" alt="перейти на предыдущую страницу, Ctrl ←" title="перейти на предыдущую страницу, Ctrl ←"></a>');
 	}
 });
 
 $.ajax({
-	url:'./' + rightPage + '.html',
+	url:'./' + rightPage + '.php',
 	type:'HEAD',
 	error: function()
 	{
@@ -40,7 +40,7 @@ $.ajax({
 	},
 	success: function()
 	{
-		document.getElementById('arr_btns').insertAdjacentHTML('beforeend', '<a id="arr_r" href="./' + rightPage + '.html"><img src="../t3/arr_r.gif" width="20" height="20" border="0" alt="перейти на следующую страницу, Ctrl →" title="перейти на следующую страницу, Ctrl →"></a>');
+		document.getElementById('arr_btns').insertAdjacentHTML('beforeend', '<a id="arr_r" href="./' + rightPage + '.php"><img src="../t3/arr_r.gif" width="20" height="20" border="0" alt="перейти на следующую страницу, Ctrl →" title="перейти на следующую страницу, Ctrl →"></a>');
 	}
 });
 
