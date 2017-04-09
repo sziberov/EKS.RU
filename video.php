@@ -1,3 +1,4 @@
+<?php if(!isset($_COOKIE['sort'])) { setcookie('sort', 'new_start', 2147483647); $_COOKIE['sort'] = 'new_start'; } ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <title>Видео</title>
@@ -14,89 +15,72 @@ print $head;
 <script src="http://vk.com/js/api/share.js?90" charset="windows-1251" type="text/javascript"></script>
 </head>
 
+<?php
+$category = 'domain_video';
+
+$directory = $_SERVER['DOCUMENT_ROOT'] . "/object/";
+include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
+?>
+
 <body onload="initBody()">
 <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
 <tr><td valign="top" style="height: 28px;">
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/include/header.php"); ?>
+<?php include($root . "/include/header.php"); ?>
 </td></tr>
 <tr><td valign="top" style="padding: 16px;" id="body_element">
 
-<?php
-$directory = $_SERVER['DOCUMENT_ROOT'] . "/show/";
-include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
-
-$category = 'domain_video';
-?>
-
-<!--<a href="/Видео"><h2>Видео</h2></a>-->
-<h1>Видео</h1><br>
+<h1 id="page_h1">Видео</h1><br>
 <p></p>
+<!--Nav sort start-->
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr>
+	<td>
+		<form method="post" action="/sort" name="select_view">
+			<!--
+			<select class="small" name="view_id" onchange="selectView();"><option>картинками</option><option>списком</option></select>
+			-->
+			<select class="small" name="sort" onchange="if (this.form) this.form.submit();">
+				<option <?php if(isset($_COOKIE['sort']) && $_COOKIE['sort'] == 'new_start') echo 'selected'; ?> value="new_start">новое в начале</option>
+				<option <?php if(isset($_COOKIE['sort']) && $_COOKIE['sort'] == 'new_end') echo 'selected'; ?> value="new_end">новое в конце</option>
+			</select>
+		</form>
+	</td>
+
 	<!--
-	<table border="0" cellpadding="5" cellspacing="0">
-		<tbody>
-			<tr>
-			<td>
-				<img src="/i/arr_sg.gif" width="20" height="20" title="вы находитесь на первой странице">
-			</td>
-			<td>
-				<img src="/i/arr_lg.gif" width="20" height="20" title="вы находитесь на первой странице">
-			</td>
-			<td>
-				<font color="#808080"><b>1..8</b></font>
-			</td>
-			<td>
-				<a href="/software.html&p=1">
-					<img src="/i/arr_r.gif" border="0" width="20" height="20" title="перейти на следующую страницу">
-				</a>
-			</td>
-			<td>
-				<a href="/software.html&amp;p=1">9..16</a>
-			<td>
-				<a href="/software.html&amp;p=2">
-					<img src="/i/arr_e.gif" border="0" width="20" height="20" title="перейти на последнюю страницу, всего позиций - 16">
-				</a>
-			</td>
-		</tbody>
-	</table>
+	<td width="20">&nbsp;</td><td>
+		<form name="search" action="http://www.ex.ua/search">
+			<input type="hidden" name="original_id" value="50911">
+			<input type="text" name="s" value="" style="width: 180px;">
+			<input type="submit" value="поиск в разделе" class="small_button"><br>
+		</form>
+	</td>
 	-->
+</tr></tbody></table>
+<!--Nav sort end-->
 <p></p>
-
+<!--Nav arrows top start-->
+<table border="0" cellpadding="5" cellspacing="0"><tbody><tr>
+	<?php include($root . "/include/category_nav.php"); ?>
+</tr></tbody></table>
+<!--Nav arrows top end-->
+<p></p>
+<!--Category objects start-->
 <table width="100%" border="0" cellpadding="0" cellspacing="8" class="include_0"><tbody>
-
-<?php
-$category = 'domain_video';
-
-include($_SERVER['DOCUMENT_ROOT'] . "/include/category_objects.php");
-?>
-
+	<?php include($root . "/include/category_objects.php"); ?>
 </tbody></table>
-
-<!--
-<script>
-$(document).ready(function () {
-    var files = ['000001.html', '000002.html', '000003.html'];
-
-        for (i = 0; i <= files.length; i++) {
-            jQuery.get(files[i], function (data) {
-
-                var htmlstr = $.parseHTML(data);
-                //alert($(htmlstr).filter('title')[0].text);
-			    $('#test').append($(htmlstr).filter('title')[0].text);
-            });
-        }
-});
-</script>
-<div id="test"></div>
--->
-
+<!--Category objects end-->
 <p></p>
-<!--Arrows post-->
+<!--Nav arrows bottom start-->
+<table border="0" cellpadding="5" cellspacing="0"><tbody><tr>
+	<?php include($root . "/include/category_nav.php"); ?>
+</tr></tbody></table>
+<!--Nav arrows bottom end-->
+<p></p>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/include/share.html"); ?>
+<?php include($root . "/include/share.html"); ?>
 
 </td></tr>
 <tr><td valign="bottom" height="32">
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/include/footer.html"); ?>
+<?php include($root . "/include/footer.html"); ?>
 </td></tr>
 </tbody></table>
 </body></html>

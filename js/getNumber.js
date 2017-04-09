@@ -54,7 +54,7 @@ function getNumber() {
 		var paddedKey = numberFormat(key, 8); // change '1' to '00000001', etc.
 		
 		$.ajax({
-			url:'./show/' + paddedKey + '.html',
+			url:'./view/' + paddedKey + '.php',
 			type:'HEAD',
 			error: function()
 			{
@@ -78,7 +78,7 @@ function getNumber() {
 				$.when(
 				$('#key').removeClass('fox_err')
 				).done(function() {
-					location.href = './show/'+paddedKey+'.html';
+					location.href = './view/'+paddedKey+'.php';
 				});
 				
 			}

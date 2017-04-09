@@ -21,7 +21,7 @@ print $head;
 </td></tr>
 <tr><td valign="top" style="padding: 16px;" id="body_element">
 
-<h1>Контактная информация</h1><p>
+<h1 id="page_h1">Контактная информация</h1><p>
 
 Нарушения, вопросы правообладания | Сотрудничество | Поддержка пользователей и другие вопросы - <a href="mailto:help.eks.ru@gmail.com">help@eks.ru</a></p><p>
 

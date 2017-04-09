@@ -61,7 +61,7 @@ print $head;
 	<div style="padding:16px">
 		<div style="position: relative; height: 40px;">
 			<div id="search_line">
-				<input type="text" name="s" value="<?php echo trim(htmlspecialchars($_GET["s"]), " "); ?>" autocomplete="off" id="search_text" maxlength="50">
+				<input type="text" name="s" value="<?php echo $query ?>" autocomplete="off" id="search_text" maxlength="50">
 				<div id="search_hint" style="display: none;"></div>
 			</div>
 			<input type="submit" value="поиск" class="button ex" id="search_button" min="3">
@@ -70,7 +70,7 @@ print $head;
 		
 		<div id="search_help">
 			Не можете найти что-то - напишите в
-			<a href="https://vk.com/eks_my1_ru"><b>нашу группу ВК</b></a>.
+			<a href="https://vk.com/eks_ru_vk"><b>нашу группу ВК</b></a>.
 		</div>
 	</div>
 </form>
@@ -93,27 +93,27 @@ print $head;
 
 	<?php
 	if(strlen($query)>2 && strlen($query)<51){
-		$directory = $_SERVER['DOCUMENT_ROOT'] . "/show/";
+		$directory = $_SERVER['DOCUMENT_ROOT'] . "/object/";
 		include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
 
 		$i = 1;
 				
 		foreach($phpfiles as $phpfile) {
-			$path = $root . "/show/" . basename($phpfile);
+			$path = $root . "/object/" . basename($phpfile);
 
 			$paddedI = str_pad($i, 8, "0", STR_PAD_LEFT);
 			
 			if (stripos(check_query($path), $query) !== false || stripos(get_title($path), $query) !== false){
 				echo '<tr><td>';
 				echo '<p>';
-					echo '<a href="/show/' . $paddedI . '">';
+					echo '<a href="/view/' . $paddedI . '">';
 						if (stripos(get_title($path), $query) !== false) {
 							echo '<img src="' . get_icon($path) . '" border="0" align="left" style="max-width: 200px; max-height: 200px; margin: 0 16px 8px 0;" alt="' . get_title($path) . '" title="' . get_title($path) . '">';
 						} else {
 							echo '<img src="' . get_icon($path) . '" border="0" align="left" style="max-width: 100px; max-height: 100px; margin: 0 16px 8px 0;" alt="' . get_title($path) . '" title="' . get_title($path) . '">';
 						}
 					echo '</a>';
-					echo '<a href="/show/' . $paddedI . '">';
+					echo '<a href="/view/' . $paddedI . '">';
 						echo '<b>' . get_title($path) . '</b>';
 					echo '</a>';
 					echo '<br>';

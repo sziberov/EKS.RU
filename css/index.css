@@ -109,7 +109,20 @@ q			{ /*font-style: italic;*/ quotes: '«' '»';}
     white-space: nowrap; 
 }
 .r_button a:hover	{ border: 1px solid #bbb; background-color: #f4f4f4; cursor: pointer; }
-.r_button_small a	{ font-size: 8pt; border: 1px solid #ddd; padding: 0px 4px 1px 4px; display: inline; margin-right: 4px; }
+.r_button_small a	{ 
+	/*font-size: 8pt; border: 1px solid #ddd; padding: 0px 4px 1px 4px; display: inline; margin-right: 4px; */
+	font-size: 11px;
+    border: 1px solid #ddd;
+    padding: 0px 12px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    margin-left: 5px;
+    white-space: nowrap;
+}
 .r_button_small a:hover	{ border: 1px solid #bbb; background-color: #f4f4f4; cursor: pointer; }
 .info			{ text-decoration: none; border-bottom: 1px dashed #ccf; }
 .announce		{ height: 26px; border-bottom: solid 1px #ccc; padding: 4px 8px 0 0; }

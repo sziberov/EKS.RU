@@ -15,7 +15,7 @@
 		echo '<td class="small" align="right" width="230">';
 		echo '<b>' . number_format(filesize($filepath)) . '</b>';
 		echo '<p>';
-			echo date('H:i, d ', filemtime($filepath)) . $monthes[(date('n', filemtime($filepath)))] . date(' Y', filemtime($filepath));
+			echo date('G:i, j ', filemtime($filepath)) . $monthes[(date('n', filemtime($filepath)))] . date(' Y', filemtime($filepath));
 			echo '<br>';
 			echo md5_file($filepath);
 			if (strstr($mime, "video/")) {
@@ -32,6 +32,8 @@
 			};
 		echo '</p>';
 		echo '<p>';
+//			echo '<span class="fox-copy" title="копировать"></span>';
+	//		echo '<span class="mail-add"></span>';
 			echo '<span class="r_button">';
 				echo '<a href="' . $filepath_relative . '" rel="nofollow" download>загрузить</a>';
 			echo '</span>';

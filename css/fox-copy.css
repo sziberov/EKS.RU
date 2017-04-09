@@ -1,0 +1,400 @@
+.fox-copy {
+    display: inline-block;
+    width: 27px;
+    height: 20px;
+    cursor: pointer;
+    background: #fff url("/img/file.svg");
+    position: relative;
+    top: 4px;
+    opacity: .8;
+}
+
+.fox-copy-open,
+.fox-copy-loading .fox-copy-loader {
+  display: block !important;
+}
+
+.fox-copy-turnon > ul,
+.fox-copy-turnon > .fox-copy-ctrl {
+	display: none !important;
+}
+
+.fox-copy-wr.fox-copy-turnon {
+	width: 330px;
+  position: relative;
+  top: 0 !important; left: 0 !important; bottom: 0; right: 0;
+  margin-right: 15px;
+}
+
+.fox-copy-wr.fox-copy-turnon .fox-copy-head {
+  cursor: default;
+}
+
+
+.fox-copy-wr {
+  position: fixed;
+  font-size: 13px;
+  top: 100px; left: 100px;
+  width: 490px;
+  box-shadow: 0 0 10px 4px rgba(0,0,0,.1);
+  display: none;
+  background-color: #fff;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.fox-copy-head {
+  background-color: #474e51;
+  color: #e9eff1;
+  line-height: 30px;
+  padding-left: 10px;
+  font-weight: bold;
+  cursor: move;
+
+  -webkit-transition: all 0.2s ease;
+  -moz-transition:    all 0.2s ease;
+  -o-transition:      all 0.2s ease;
+  -ms-transition:     all 0.2s ease;
+  transition:         all 0.2s ease;
+}
+
+.fox-copy-turnon .fox-copy-head.active {
+  background-color: #00a8ff;
+}
+/*.fox-copy-turnon .mail-title > span {
+  color: #c2c7ca;
+}*/
+
+.fox-copy-turn,
+.fox-copy-close {
+  display: block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  float: left;
+  line-height: 30px;
+  text-align: center;
+}
+
+.fox-copy-close:after {
+  content: '';
+  display: inline-block;
+  background: url("/img/ex_sprite.png") left -68px;
+  width: 11px;
+  height: 11px;
+}
+
+.fox-copy-turn:after {
+  content: '';
+  display: inline-block;
+  background-color: #fff;
+  width: 9px;
+  height: 2px;
+}
+
+.fox-copy-turn:hover,
+.fox-copy-close:hover {
+  background-color: rgba(255,255,255,.1);
+}
+
+.fox-copy-head > div {
+  float: right;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.fox-copy-file-list {
+  margin: 0;
+  padding: 0;
+  height: 325px;
+  overflow: auto;
+  /*box-shadow: inset 0px -2px 11px rgba(0,0,0,.1);*/
+}
+
+.fox-copy-file-list > li {
+  border-bottom: 1px solid #ebebeb;
+  list-style: none;
+  padding: 7px 10px;
+  margin-top: 0;
+  overflow: hidden;
+}
+.fox-copy-file-list > li > span {
+  color: #252525;
+  display: inline-block;
+  max-width: 410px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  position: relative;
+  top: 4px;
+}
+
+.fox-copy-file-list > li > i {
+  background-color: #ebebeb;
+  border-radius: 3px;
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
+  text-align: center;
+  float: right;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.fox-copy-file-list > li > i:hover  {
+  opacity: .8;
+}
+
+.fox-copy-file-list > li > i:after {
+  content: '';
+  background: url("/img/ex_sprite.png") left -79px;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+}
+
+.fox-copy-ctrl {
+  border-top: 1px solid #ebebeb;
+  height: 49px;
+  padding: 0 10px;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+/**/
+.fox-copy-save-new,
+.fox-copy-save-exist,
+.fox-copy-kay-access {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 7px 16px;
+  position: relative;
+  top: 10px;
+}
+
+.fox-copy-save-new:hover,
+.fox-copy-save-exist:hover {
+  opacity: .8;
+}
+
+.fox-copy-save-new {
+  color: #fff;
+  border: none;
+  background-color: #0080e3;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.fox-copy-save-exist {
+  color: #fff;
+  background-color: #0080e3;
+  cursor: pointer;
+}
+
+.fox-copy-kay-access {
+  width: 105px;
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.1);
+}
+
+.fox-copy-kay-access:focus {
+  outline: none;
+}
+
+.fox-copy-ctrl > span {
+  color: #363636;
+  position: relative;
+  top: 10px;
+  margin-left: -4px;
+  left: 20px;
+}
+
+/**/
+
+.fox-copy-loader {
+  position: absolute;
+  top: 30px; left: 0; right: 0; bottom: 0;
+  background-color: #fff;
+  z-index: 999;
+  display: none;
+}
+
+/* 
+ * This is a nice full CSS3 fox-loader made with LESS 
+*/
+/* u can custom almost everything u need with these variables just bellow */
+/* but from here u'll have to understand what u'r dealing with */
+/* mixins */
+/* animations */
+.spin {
+  -webkit-animation: spin 750ms infinite linear;
+  -moz-animation: spin 750ms infinite linear;
+  animation: spin 750ms infinite linear;
+}
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+.rspin {
+  -webkit-animation: rspin 2250ms infinite linear;
+  -moz-animation: rspin 2250ms infinite linear;
+  animation: rspin 2250ms infinite linear;
+}
+@-webkit-keyframes rspin {
+  to {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+@-moz-keyframes rspin {
+  to {
+    -moz-transform: rotate(-360deg);
+  }
+}
+/* let's style that thing */
+.fox-loader {
+  background-color: #eeeeee;
+  border-radius: 100%;
+  position: relative;
+  margin: 150px auto;
+  height: 75px;
+  width: 75px;
+  overflow: hidden;
+}
+.fox-loader .c {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -34% 0 0 -34%;
+  width: 68%;
+  height: 68%;
+  background-color: #ffffff;
+  border-radius: 100%;
+  z-index: 3;
+}
+.fox-loader .d {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.fox-loader .d .e {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  margin: 0 0 0 -7.5px;
+  height: 14px;
+  width: 15px;
+  -webkit-transform: rotate(10deg) skew(20deg);
+  -moz-transform: rotate(10deg) skew(20deg);
+  border-radius: 3px;
+  background: #999;
+}
+.fox-loader .r {
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  bottom: -1px;
+  margin-left: -3.75px;
+  background-color: #ffffff;
+  width: 7.5px;
+}
+.fox-loader .r1 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+}
+.fox-loader .r2 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+}
+.fox-loader .r3 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+}
+.fox-loader .r4 {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+}
+
+.fox-copy-key-bl {
+  position: relative;
+  top: 10px;
+  display: inline-block;
+  left: 35px;
+}
+
+.fox-copy-link {
+  color: rgba(0,163,239,1) !important;
+  border-bottom: none !important;
+}
+
+.fox-copy-key-bl span {
+  border-bottom: 1px dashed #000;
+  cursor: pointer;
+}
+
+
+.fox-minifed-holder {
+  position: fixed;
+  right: 0; bottom: 0; left: auto;
+  /*height: 30px;
+  min-width: 100px;*/
+  z-index: 99;
+}
+
+.fox-minifed-holder .ui-draggable {
+  float: left;
+}
+
+
+.fox-copy-key-bl:hover .fox-copy-tooltip {
+  display: block;
+}
+
+.fox-copy-tooltip {
+  display: none;
+  color: #fff;
+  background-color: #191919;
+  position: absolute;
+  border-radius: 3px;
+
+  padding: 5px 10px;
+  white-space: nowrap;
+  top: -35px;
+
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.fox-copy-tooltip:after {
+  display: block;
+  content: '';
+  border: 7px solid transparent;
+  border-top-color: #191919;
+  position: absolute;
+  bottom: -14px;
+
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.copy_suc {
+  color: #6fb510;
+}

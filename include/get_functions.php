@@ -17,7 +17,7 @@ foreach($phpfiles as $key => $val) {
 		$cat_objects[$key] = $val;
 	}
 }
-		
+
 function check_query($url) {
 	$str = file_get_contents($url);
 	if(strlen($str)>0){
@@ -31,6 +31,22 @@ function get_main_info($url) {
 	if(strlen($str)>0){
 		preg_match("/<p.id=.main_info.>(.*?)<\/p>/is", $str, $main_info); 
 		return $main_info[1];
+	}
+}
+
+function get_post($url) {
+	$str = file_get_contents($url);
+	if(strlen($str)>0){
+		preg_match("/<div.id=.post.>(.*?)<\/div>/is", $str, $post); 
+		return $post[1];
+	}
+}
+
+function get_h1($url) {
+	$str = file_get_contents($url);
+	if(strlen($str)>0){
+		preg_match("/<h1.id=.page_h1.>(.*?)<\/h1>/is", $str, $get_h1); 
+		return $get_h1[1];
 	}
 }
 
@@ -60,10 +76,11 @@ function get_icon($url) {
 		preg_match('/id=\"poster\".*src=\"([^"]+)\"/i', $str, $icon_src);
 	}
 	$string = $icon_src[1];
-	$pattern = '/\<([^"]+)\>/i';
+//	$pattern = '/\<([^"]+)\>/i';
 	$replacement = "load/" . $paddedI;
-	$count = null;
-	return preg_replace($pattern, $replacement, $string, -1, $count); 
+//	$count = null;
+//	return preg_replace($pattern, $replacement, $string, -1, $count); 
+	return '/' . $replacement . '/' . $string;
 }
 
 include($root . "/include/files_info_size.php");

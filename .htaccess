@@ -1,8 +1,11 @@
-Options -Indexes
-AddDefaultCharset Off
+Options -Indexes +FollowSymLinks
+AddDefaultCharset UTF-8
 
 RewriteEngine On
 RewriteBase /
+
+RewriteRule ^([a-z]+)\/([0-9]+)\/?$ view.php?$1 [NC]
+
 #1) externally redirect "/file.html" to "/file"
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
 RewriteRule ^ %1 [R=301,L]

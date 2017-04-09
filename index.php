@@ -204,7 +204,7 @@ print $head;
 			<div class="watch">
 				<ul id="ti">
 					<?php 
-					require('/plugin/simplepie/autoloader.php'); 
+					require($_SERVER['DOCUMENT_ROOT'] . '/plugin/simplepie/autoloader.php'); 
 					?>
 					<div id="data-rss_0" style="display: none;">
 						<?php 
