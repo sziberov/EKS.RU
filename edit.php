@@ -1,4 +1,12 @@
 <?php
+include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
+
+$original_id = $_SERVER['QUERY_STRING'];
+
+if(!isset($_COOKIE['u_log']) && !isset($_COOKIE['u_pass'])){
+   header('Location: /login?d=1');
+}
+
 if(isset($_COOKIE['saveStatus']) && $_COOKIE['saveStatus'] == 'upload_success') {
 	$saveStatus = 'upload_success';
 } else 
@@ -6,11 +14,16 @@ if(isset($_COOKIE['saveStatus']) && $_COOKIE['saveStatus'] == 'upload_error') {
 	$saveStatus = 'upload_error';
 } 
 
+$submit = 0;
+
 if(isset($_COOKIE['saveStatus'])) {
 	unset($_COOKIE['saveStatus']);
 	setcookie('saveStatus', null, -1, '/');
+
+	$submit = 1;
 } 
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <title>Редактирование</title>
@@ -28,17 +41,24 @@ print $head;
 
 
 <body onload="initBody()">
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"><tbody>
 <tr><td valign="top" style="height: 28px;">
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . "/include/header.php"); 
-include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
 ?>
 </td></tr>
 <tr><td valign="top" style="padding: 16px;" id="body_element">
 
+<div class="drag_area"><span>Перетащите файлы сюда</span></div>
+
 <p>
 <script>
+function viewObject()
+{
+	window.location = '<?php echo '/view_comments/'.$original_id ?>';
+	return true;
+}
+
 function viewBack()
 {
 
@@ -53,16 +73,15 @@ function viewBack()
 		}
 	}
 
-
 	history.back();
 	return false;
 }
 </script>
 </p>
-<?php error_reporting(E_ALL | E_STRICT); ini_set('display_errors', 1); ini_set('html_errors', 1); ?>
-<form name="edit" method="post" action="add_comment">
+<?php /*error_reporting(E_ALL | E_STRICT); ini_set('display_errors', 1); ini_set('html_errors', 1);*/ ?>
+<form name="edit" method="post" action="/add_comment">
 <table width="100%" border="0" cellpadding="4" cellspacing="8" id="editor_table"><tbody>
-	<input type="hidden" name="back" value="<?php echo '/'.$_GET["original_id"] ?>">
+	<input type="hidden" name="back" value="<?php echo '/'.$original_id ?>">
 	<input type="hidden" name="date_1" value="<?php
 	date_default_timezone_set('UTC');
 	function date_offset($format, $offset) {
@@ -79,9 +98,10 @@ function viewBack()
 	</tr>
 	<tr>
 		<td width="120" align="right">заголовок:</td>
-		<td><input type="text" name="title" value="" style="width: 100%" maxlength="255"></td>
+		<td><input type="text" name="title" value="<?php echo $_REQUEST["title"] ?>" style="width: 100%" maxlength="255"></td>
 		<td rowspan="2" width="120" valign="top" align="right"></td>
 	</tr>
+	<!--
 	<tr>
 		<td width="120" align="right">имя:</td>
 		<td><input id="latin" type="text" name="username" value="" style="width: 100%" maxlength="15" pattern="[a-zA-Z0-9 ]+"></td>
@@ -102,14 +122,16 @@ function viewBack()
 			});
 		</script>
 	</tr>
+	-->
 	<tr>
 		<td align="right">текст:</td>
-		<td><textarea name="post" rows="16" style="width: 100%" maxlength="65535"></textarea></td>
+		<td><textarea name="post" value="<?php echo $_REQUEST["post"] ?>" rows="16" style="width: 100%" maxlength="65535"></textarea></td>
 	</tr>
 
 	<tr><td></td><td>
 		<input type="submit" value="сохранить" class="button">&nbsp;
 		<input type="button" value="вернуться" class="button" onclick="viewBack();">&nbsp;
+		<input type="button" value="смотреть" class="button" onclick="viewObject();">&nbsp;
 
 		<?php 
 		echo '<span id="saveStatus"';
@@ -133,7 +155,6 @@ function viewBack()
 
 </tbody></table>
 </form>
-
 
 </td></tr>
 <tr><td valign="bottom" height="32">

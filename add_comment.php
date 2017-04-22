@@ -4,7 +4,8 @@ if(strlen($_POST['title']) == 0){
 } else {
 	$title = $_POST['title'];
 }
-$username = str_replace(' ', '_', trim($_POST['username'], " "));
+//$username = str_replace(' ', '_', trim($_POST['username'], " "));
+$username = $_COOKIE['u_log'];
 $date_1 = $_POST['date_1'];
 
 date_default_timezone_set('UTC');
@@ -20,9 +21,23 @@ $content_raw = $_POST['post'];
 $content_semiraw = preg_replace("/\r\n|\r|\n/",'<br>',$content_raw);
 $remove_script = '/\<script.*\<\/script\>/iU';
 $content = preg_replace('#^(( ){0,}<br( {0,})(/{0,1})>){1,}#i', '', preg_replace('#(( ){0,}<br( {0,})(/{0,1})>){1,}$#i', '', trim(strip_tags(preg_replace($remove_script, '', $content_semiraw), '<br><b><i><em><strong><small><ins><del><sub><sup>'))));
+$content = str_replace('{', '&#x7B;', $content);
+$content = str_replace('}', '&#x7D;', $content);
+$content = str_replace('"', '&#x22;', $content);
 
 $id = basename($_POST['back']);
 $file_path = $_SERVER['DOCUMENT_ROOT']."/comments/".$id.".php";
+
+if (file_exists($file_path)) {
+	$str = file_get_contents($file_path);
+}
+
+$comment_no = 1;
+if(strlen($str)>0){
+	preg_match_all('/^(?=(?:\s)id\s*=\s+"(?P<id>[^"]*)")/ixsm', $str, $comment_id_arr);
+	
+	$comment_no = end($comment_id_arr['id']) + 1;
+}
 
 if ($username != null && $content != null) {
 file_put_contents($file_path,
@@ -32,6 +47,8 @@ file_put_contents($file_path,
 	date_1 = "' . $date_1 . '"
 	date_2 = "' . $date_2 . '"
 	content = "' . $content . '"
+	id = "' . $comment_no . '"
+	type = "view"
 }' . PHP_EOL
 
 , FILE_APPEND);

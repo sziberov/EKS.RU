@@ -1,0 +1,109 @@
+/* ---------------- v.1.0 - 05.09. - 14:25 ---------- */
+#gender_counter_wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    /*display: none;*/
+}
+#inquirer{
+    background: none repeat scroll 0 0 white;
+    margin: 80px auto;
+    padding: 10px 30px 30px;
+    position: relative;
+    font-family: Arial, Geneva, sans-serif;
+    /*width: 515px;*/
+	width: 355px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+}
+#inquirer input[type=radio] {
+    display:none;
+    margin:10px;
+}
+#inquirer input[type=radio] + label {
+    display:inline-block;
+    padding: 13px 18px;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    color: #0076a3;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#inquirer input[type=radio]:last-of-type + label:last-of-type {
+    margin-right: 0;
+}
+#inquirer .checked{
+    display: none;
+    width: 18px;
+    height: 15px;
+    background: url("sprite.png") -56px -28px;
+    position: absolute;
+    left: 32px;
+    top: 62px;
+}
+#inquirer .sex input[type=radio]#men:checked + label,#inquirer .sex input[type=radio]#men + label:hover {
+    background-image: none;
+    background-color:#31a5d1;
+    color: white;
+    cursor: pointer;
+}
+#inquirer .sex input[type=radio]#women:checked + label,#inquirer .sex input[type=radio]#women + label:hover {
+    background-image: none;
+    background-color:#cd93db;
+    color: white;
+    cursor: pointer;
+}
+#inquirer h3.title{
+    font-size: 20px;
+    color: #363636;
+    font-weight: 200;
+    margin-bottom: -10px;
+    opacity: 0.7;
+}
+#inquirer h3{
+    font-size: 19px;
+    color: #363636;
+    font-weight: 200;
+    margin: 15px auto;
+}
+#inquirer .close{
+    display: block;
+    width: 17px;
+    height: 17px;
+    background: url("sprite.png") -56px 0;
+    position: absolute;
+    right: 18px;
+    top: 20px;
+    opacity: 0.4;
+}
+#inquirer .close:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+#inquirer .age input[type=radio] + label {
+    padding: 13px 15px;
+}
+#inquirer .age input[type=radio]:checked + label, #inquirer .age input[type=radio] + label:hover {
+    background-image: none;
+    background-color:#6b858f;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-inquirer-adcounter iframe{
+    left: -9999px;
+}
+
+.modal-inquirer-adcounter .view-player iframe{
+    left: -9999px;
+}
+
+.gender-img {
+    width: 1px;
+    height: 1px;
+    border: 0;
+}

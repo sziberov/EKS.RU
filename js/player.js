@@ -127,13 +127,4 @@ var no_cats = false;
 
 		return null;
 	}
-	
-	if ($poster.length && !p) {
-		var hd_ratio = 1080 / 1920;
-		var first_video_ratio = 0.5;
-		player_conf.width = $poster.width();
-		player_conf.height = $poster.width() * (first_video_ratio >= hd_ratio && first_video_ratio <= 1 ? first_video_ratio : hd_ratio);
-		no_cats = true;
-		clickPlayer(0, true);
-	}
 }();

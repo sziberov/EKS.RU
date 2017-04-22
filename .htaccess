@@ -4,7 +4,13 @@ AddDefaultCharset UTF-8
 RewriteEngine On
 RewriteBase /
 
-RewriteRule ^([a-z]+)\/([0-9]+)\/?$ view.php?$1 [NC]
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^view/(.*)$ ./view.php?$1 [NC]
+RewriteRule ^([0-9]+)$ ./view.php?$1 [NC]
+RewriteRule ^view_comments/(.*)$ ./view_comments.php?$1
+RewriteRule ^edit/(.*)$ ./edit.php?$1
+RewriteRule ^edit_storage/(.*)$ ./edit_storage.php?$1
 
 #1) externally redirect "/file.html" to "/file"
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
@@ -25,3 +31,14 @@ RewriteRule ^(.*)index\.(php|html?)$ $1 [R=301,NC,L]
 ErrorDocument 403 /server/403.php
 ErrorDocument 404 /server/404.php
 ErrorDocument 414 /server/414.php
+
+RewriteCond %{REMOTE_ADDR} !^123\.456\.789\.000
+RewriteCond %{DOCUMENT_ROOT}/server/offline.php -f
+RewriteCond %{DOCUMENT_ROOT}/offline.enable -f
+RewriteCond %{REQUEST_URI} !\.(jpe?g?|png|gif|svg|js|css) [NC]
+RewriteCond %{SCRIPT_FILENAME} !offline.php
+RewriteRule ^.*$ /server/offline [R=503,L]
+ErrorDocument 503 /server/offline
+Header Set Cache-Control "max-age=0, no-store"
+
+php_value upload_tmp_dir /tmp_uploads

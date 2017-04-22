@@ -5,7 +5,7 @@
 		$mime = mime_content_type($filepath);
 		if (strstr($mime, "video/")) {
 			echo '<td align="center" width="110">&nbsp;';
-			echo '<span class="r_button"><a data-index="0" class="fox-play-btn" href="' . $filepath_relative . '" rel="nofollow" onclick="return false;">играть</a></span></td>';
+			echo '<span class="r_button"><a data-index="' . $vid_i . '" class="fox-play-btn" href="' . $filepath_relative . '" rel="nofollow" onclick="return false;">играть</a></span></td>';
 		} else if (strstr($mime, "image/")) {
 			echo '<td align="center" width="110">&nbsp;<a href="' . $filepath_relative . '" id="picture_' . $i . '" onclick="return view(this, ' . $i . ');"><img src="' . $filepath_relative . '" border="0" style="max-height: 100px; max-width: 100px"></a><p><a src="' . $filepath_relative . '" id="picture_' . $i . '" onclick="return view(this, ' . $i . ');"></a></p></td>';
 		} else {
@@ -19,7 +19,7 @@
 			echo '<br>';
 			echo md5_file($filepath);
 			if (strstr($mime, "video/")) {
-				require_once('../plugin/getid3/getid3.php');
+				require_once($_SERVER['DOCUMENT_ROOT'] . '/plugin/getid3/getid3.php');
 				$getID3 = new getID3;
 				$file = $getID3->analyze($filepath);
 				echo '<br>';

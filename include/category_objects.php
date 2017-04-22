@@ -17,10 +17,58 @@ if (isset($current)) {
 echo '<tr>';
 foreach($phpfiles_onpage as $key => $val) {
 	$path = $directory . basename($val);
+	$object_file = pathinfo(basename($val), PATHINFO_FILENAME);
 
 	$paddedI = str_pad($key + 1, 8, "0", STR_PAD_LEFT);
-	if (get_category($path) == $category) {
-		echo '<td align="center" valign="center"><a href="/view/' . $paddedI . '"><img src="' . get_icon($path) . '" style="max-height: 200px; max-width: 200px" border="0"></a><p><a href="/view/' . $paddedI . '"><b>' . get_title($path) . '</b></a><br><small>' . get_date($path) . '</small></td>' . PHP_EOL;
+	if (get_category($path) == 'category_'.$category) {
+			echo '<td align="center" valign="center">';
+				//if (file_exists($_SERVER['DOCUMENT_ROOT'].get_icon($path))) {
+					echo '<a href="/' . $object_file . '">';
+						echo '<img src="' . get_icon($path) . '" style="max-height: 200px; max-width: 200px" border="0">';
+					echo '</a>';
+				//}
+				echo '<p>';
+					echo '<a href="/' . $object_file . '">';
+						echo '<b>' . get_title($path) . '</b>';
+					echo '</a>';
+					echo '<br>';
+					echo '<small>' . get_date_without_mod($path) . '</small>';
+				echo '</p>';
+
+			$comments = $_SERVER['DOCUMENT_ROOT'].'/comments/'.$object_file.'.php';
+			if (file_exists($comments)) {
+				$str = file_get_contents($comments);
+				
+				if(strlen($str)>0){
+					preg_match_all('/^"(?P<title>[^"]*)"[^{]*{
+									(?:(?=[^}]*\susername\s*=\s+"(?P<username>[^"]*)"))?
+									(?:(?=[^}]*\scontent\s*=\s+"(?P<content>[^"]*)"))?
+									(?:(?=[^}]*\sdate_2\s*=\s+"(?P<date_2>[^"]*)"))?
+									(?=[^}]*\sdate_1\s*=\s+"(?P<date_1>[^"]*)")/ixsm', $str, $comments_arr_raw);
+					foreach ($comments_arr_raw as $key => $value) {
+						if (is_int($key)) {
+							unset($comments_arr_raw[$key]);
+						}
+					}
+					foreach($comments_arr_raw as $key => $a){
+						foreach($a as $k => $v){
+							$comments_arr[$k][$key] = $v;
+						}
+					}
+					
+					$comments_amount = 0;
+					foreach($comments_arr as $comment) {
+						$comments_amount++;
+					}	
+					
+					if ($comments_amount != 0) {
+						echo '<p><a href="/view_comments/'.$object_file.'" class="info">Отзывов: '.$comments_amount.'</a>&nbsp;</p>';
+					}
+				}
+			}
+			
+		echo '</td>';
+		echo PHP_EOL;
 		$o++;
 	}
 

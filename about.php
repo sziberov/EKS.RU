@@ -16,7 +16,7 @@ print $head;
 
 
 <body onload="initBody()">
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"><tbody>
 <tr><td valign="top" style="height: 28px;">
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/include/header.php"); ?>
 </td></tr>

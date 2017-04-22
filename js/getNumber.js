@@ -42,7 +42,7 @@ function getNumber() {
 	
 	if (key == '') {
 		$('#fox_note').stop(true).fadeOut(100, function () {
-			$('.note_bl').html("Не введен номер объекта");
+			$('.note_bl').html("Не введен ключ объекта");
 		});
 		$('#fox_note').fadeIn(300, function () {
 			$(this).delay(3500).fadeOut(100);
@@ -54,7 +54,7 @@ function getNumber() {
 		var paddedKey = numberFormat(key, 8); // change '1' to '00000001', etc.
 		
 		$.ajax({
-			url:'./view/' + paddedKey + '.php',
+			url:'/object/' + paddedKey + '.php',
 			type:'HEAD',
 			error: function()
 			{
@@ -78,9 +78,8 @@ function getNumber() {
 				$.when(
 				$('#key').removeClass('fox_err')
 				).done(function() {
-					location.href = './view/'+paddedKey+'.php';
+					location.href = '/view/'+paddedKey;
 				});
-				
 			}
 		});
 	}

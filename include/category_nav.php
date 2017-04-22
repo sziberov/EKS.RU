@@ -1,6 +1,6 @@
 <?php
 $totalpage = count($phpfiles);
-$per_page = 12;
+$per_page = 24;
 
 $max_pages = ceil($totalpage / $per_page);
 
@@ -17,11 +17,37 @@ $next = $current+1;
 $next2 = $current+2;
 $next3 = $current+3;
 
+if (isset($current)) { 
+	$objects_onpage_i = array_slice($objects_i, $per_page * intval($current) - $per_page, $per_page, true);
+} else {
+	$objects_onpage_i = array_slice($objects_i, $per_page * 1 - $per_page, $per_page, true);
+}
+
+/*
+if(isset($_COOKIE['sort']) && $_COOKIE['sort'] == 'new_start') {
+	$firstElement = array_shift($objects_onpage_i);
+	$lastElement = array_pop($objects_onpage_i);
+} else 
+if(isset($_COOKIE['sort']) && $_COOKIE['sort'] == 'new_end') {
+	$firstElement = array_pop($objects_onpage_i);
+	$lastElement = array_shift($objects_onpage_i);
+}
+*/
+
+if (!empty($objects_i)) {
+	$firstElement = array_values(array_slice($objects_onpage_i, 0, 1))[0]; 
+	$lastElement = array_values(array_slice($objects_onpage_i, -1))[0];
+} else {
+	$firstElement = 0;
+	$lastElement = 0;
+}
+
+
 if ($current == 1 && $max_pages > 1 && $current < $max_pages) {
 	echo '<td><img src="/t3/arr_sg.gif" border="0" width="20" height="20" title="вы находитесь на первой странице"></td>';
 	echo '<td><img src="/t3/arr_lg.gif" border="0" width="20" height="20" title="вы находитесь на первой странице"></td>';
 	//-----
-	echo '<td><font color="#808080"><b>1</b></font></td>';
+	echo '<td><font color="#808080"><b>'.$firstElement.'..'.$lastElement.'</b></font></td>';
 	//-----
 	echo '<td><a id="browse_next" href="?p='.($next).'">';
 		echo '<img src="/t3/arr_r.gif" border="0" width="20" height="20" title="перейти на следующую страницу">';
@@ -51,7 +77,7 @@ if ($current > 1 && $current < $max_pages) {
 		echo '<img src="/t3/arr_l.gif" border="0" width="20" height="20" title="перейти на предыдущую страницу">';
 	echo '</a></td>';
 	//-----
-	echo '<td><font color="#808080"><b>'.$current.'</b></font></td>';
+	echo '<td><font color="#808080"><b>'.$firstElement.'..'.$lastElement.'</b></font></td>';
 	//-----
 	echo '<td><a id="browse_next" href="?p='.($next).'">';
 		echo '<img src="/t3/arr_r.gif" border="0" width="20" height="20" title="перейти на следующую страницу">';
@@ -81,7 +107,7 @@ if ($current == $max_pages && $max_pages != 1) {
 		echo '<img src="/t3/arr_l.gif" border="0" width="20" height="20" title="перейти на предыдущую страницу">';
 	echo '</a></td>';
 	//-----
-	echo '<td><font color="#808080"><b>'.$current.'</b></font></td>';
+	echo '<td><font color="#808080"><b>'.$firstElement.'..'.$lastElement.'</b></font></td>';
 	//-----
 	echo '<td><img src="/t3/arr_rg.gif" border="0" width="20" height="20" title="вы находитесь на последней странице"></td>';
 	echo '<td><img src="/t3/arr_eg.gif" border="0" width="20" height="20" title="вы находитесь на последней странице"></td>';
@@ -91,7 +117,7 @@ if ($max_pages == 1) {
 	echo '<td><img src="/t3/arr_sg.gif" border="0" width="20" height="20" title="вы находитесь на первой странице"></td>';
 	echo '<td><img src="/t3/arr_lg.gif" border="0" width="20" height="20" title="вы находитесь на первой странице"></td>';
 	//-----
-	echo '<td><font color="#808080"><b>1</b></font></td>';
+	echo '<td><font color="#808080"><b>'.$firstElement.'..'.$lastElement.'</b></font></td>';
 	//-----
 	echo '<td><img src="/t3/arr_rg.gif" border="0" width="20" height="20" title="вы находитесь на последней странице"></td>';
 	echo '<td><img src="/t3/arr_eg.gif" border="0" width="20" height="20" title="вы находитесь на последней странице"></td>';

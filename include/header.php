@@ -16,6 +16,7 @@
 		<a href="/games">Игры</a>&nbsp;|
 		-->
 
+		<a href="/files">Файлы</a>&nbsp;|
 		<a href="/software">Программы</a>&nbsp;|
 		<a href="/video">Видео</a>&nbsp;|
 		<a href="/about">О сервисе</a>&nbsp;|
@@ -45,24 +46,42 @@
 		<a href="EKS.my1.ru/login">Вход</a>
 		-->
 		<?php
-			if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'moscow') {
-				echo '<span class="menu_login"><span id="timeMoscow"></span></span><script src="/js/time.js"></script></span>&nbsp;|';
-			} else if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'kiev') {
-				echo '<span class="menu_login"><span id="timeKiev"></span></span><script src="/js/time.js"></script></span>&nbsp;|';
-			} else if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'astana') {
-				echo '<span class="menu_login"><span id="timeAstana"></span></span><script src="/js/time.js"></script></span>&nbsp;|';
-			} else if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'new-york') {
-				echo '<span class="menu_login"><span id="timeNewYork"></span></span><script src="/js/time.js"></script></span>&nbsp;|';
+			$u_login = $_COOKIE['u_log'];
+			$u_password = $_COOKIE['u_pass'];
+			
+			if(isset($u_login) && isset($u_password)) {
+				echo '<span class="menu_login">' . $_COOKIE['u_log'] . '</span>&nbsp;|&nbsp;';
+			}
+			
+			$time_region = $_COOKIE['time_region'];
+			
+			if(isset($time_region) && $time_region == 'moscow') {
+				echo '<span class="menu_login"><span id="timeMoscow"></span></span><script src="/js/time.js"></script></span>&nbsp;';
+			} else if(isset($time_region) && $time_region == 'kiev') {
+				echo '<span class="menu_login"><span id="timeKiev"></span></span><script src="/js/time.js"></script></span>&nbsp;';
+			} else if(isset($time_region) && $time_region == 'astana') {
+				echo '<span class="menu_login"><span id="timeAstana"></span></span><script src="/js/time.js"></script></span>&nbsp;';
+			} else if(isset($time_region) && $time_region == 'new-york') {
+				echo '<span class="menu_login"><span id="timeNewYork"></span></span><script src="/js/time.js"></script></span>&nbsp;';
 			}
 		?>
 		<form style="display: inline;" method="post" action="/time">
 			<select name="time_region" onchange="if (this.form) this.form.submit();">
-				<option <?php if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'moscow') echo 'selected'; ?> value="moscow">Москва</option>
-				<option <?php if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'kiev') echo 'selected'; ?> value="kiev">Киев</option>
-				<option <?php if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'astana') echo 'selected'; ?> value="astana">Астана</option>
-				<option <?php if(isset($_COOKIE['time_region']) && $_COOKIE['time_region'] == 'new-york') echo 'selected'; ?> value="new-york">Нью-Йорк</option>
+				<option <?php if(isset($time_region) && $time_region == 'moscow') echo 'selected'; ?> value="moscow">Москва</option>
+				<option <?php if(isset($time_region) && $time_region == 'kiev') echo 'selected'; ?> value="kiev">Киев</option>
+				<option <?php if(isset($time_region) && $time_region == 'astana') echo 'selected'; ?> value="astana">Астана</option>
+				<option <?php if(isset($time_region) && $time_region == 'new-york') echo 'selected'; ?> value="new-york">Нью-Йорк</option>
 			</select>		
-		</form>
+		</form>&nbsp;|
+		<?php
+		$current_url = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/");
+		
+		if(isset($u_login) && isset($u_password)) {
+			echo '<a href="/logout">Выход</a>';
+		} else {
+			echo '<a href="/login?back=' . $current_url . '">Вход</a>';
+		}
+		?>
 		&nbsp;
 	</td>
 </tr>

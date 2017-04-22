@@ -2,6 +2,7 @@
 $files = glob($dir . "/*");
 
 $i = 1;
+$vid_i = -1;
 
 $img_arr = array();
 $vid_arr = array();

@@ -1,7 +1,7 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php"); 
-$current_url_object = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-$current_object = $_SERVER['DOCUMENT_ROOT'] . "/object/" . $current_url_object . '.php';
+$object_file = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+$current_object = $_SERVER['DOCUMENT_ROOT'] . "/object/" . $object_file . '.php';
 
 if (isset($_SERVER['QUERY_STRING'])) {
 	if(!empty($_SERVER['QUERY_STRING'])) {
@@ -58,7 +58,7 @@ if (window.devicePixelRatio) document.cookie = 'udpr=' + window.devicePixelRatio
 </head>
 
 <body onload="initBody()">
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"><tbody>
 <tr><td valign="top" style="height: 28px;">
 <?php 
 	$root = $_SERVER['DOCUMENT_ROOT']; 
@@ -81,9 +81,13 @@ echo get_h2($current_object);
 </p>	
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td valign="top">
-<img id="poster" alt="<?php echo $title; ?>" src="<?php echo $poster; ?>" style="margin: 0 16px 8px 0; max-height: 512px; max-width: 512px;" title="<?php echo $title; ?>" align="left" border="0">
+<?php
+//if(file_exists($root . get_icon($current_object))) {
+	echo '<img id="poster" alt="'.$title.'" src="'.$poster.'" style="margin: 0 16px 8px 0; max-height: 800px; max-width: 800px;" title="'.$title.'" align="left" border="0">';
+//};
+?>
 <h1 id="page_h1"><?php echo $title; ?></h1><br>
-<small id="upload_time"><?php echo $date; ?></small>
+<small id="upload_time"><?php echo $date; ?><!--<script src="/js/lastmodified.js">--></small>
 <p>
 </p>
 <div id="post">
@@ -107,20 +111,32 @@ echo get_h2($current_object);
 <tr>
 <?php 
 $dir = $root . "/" . $key;
-include($root . "/include/files_count.php");
+
+function is_dir_empty($dir) {
+  if (!is_readable($dir)) return NULL; 
+  $handle = opendir($dir);
+  while (false !== ($entry = readdir($handle))) {
+    if ($entry != "." && $entry != "..") {
+      return FALSE;
+    }
+  }
+  return TRUE;
+}
+
+if (file_exists($dir)) {
+	if (is_dir($dir)) {
+		if (!is_dir_empty($dir)) {
+			include($root . "/include/files_count.php");
+
+			echo '<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: '.$file_count.'</span>, суммарный размер: '.number_format(getDirectorySize($dir)).'</small></td>';
+		}
+	}
+}
 ?>
-<td colspan="3" valign="bottom"><b>Файлы:</b><br><small>Кол-во: <?php echo $file_count ?></span>, суммарный размер: <?php echo number_format(getDirectorySize($dir)); ?></small></td>
 <td align="right" nowrap="nowrap" valign="bottom">&nbsp;
-<!--		Player		-->
+<!--		Player	1		-->
 
-<div id="player" style="visibility: hidden; position: fixed; width: 720px; height: 526px; right: 16px; top: 32px; border: 1px solid #444; background-color: #000; z-index: 99999;">
- <div style="width: 720px; height: 20px; background-color: #888" onmousedown='dragStart(event, "player");'><span id="player_title" style="float: left; padding: 2px 4px 0 8px; cursor: default;"></span>
-  <button style="float: right; width: 16px; height: 16px; margin-top: 2px; margin-right: 4px;" title="Скрыть проигрыватель" onclick="toggle();"></button>
- </div>
- <div id="player_window" style="width: 720px; height: 506px; text-align: center; background-color: #ccc;"></div>
-</div>
-
-<!--<span class=r_button><a id='player_toggle' href='/103004334' onclick='return toggle();'>показать проигрыватель</a></span>-->
+<!--<span class=r_button><a id='player_toggle' href='/' onclick='return toggle();'>показать проигрыватель</a></span>-->
 
 <div class="vpaidContainer"></div>
 
@@ -134,20 +150,85 @@ include($root . "/include/files_count.php");
 
 <script src="/js/player.js" type="text/javascript"></script>
 <script src="/js/player-ad.js" type="text/javascript"></script>
-<!--<script src="/js/player-url.js" type="text/javascript"></script>-->
 
-<!--		Player End		-->
+<!--		Player 1 End		-->
 </td>
 </tr>
 
 <?php include($root . "/include/flist_gnrt.php"); ?>
+
+<!--		Player	2		-->
+<?php
+if (!empty($vid_arr)) {
+	echo '
+	<script>
+		var vjsCover = {"cover": "'.$poster.'", };
+
+		var kids_vast_url = "";
+
+		var player_conf = {
+			cover: {url: vjsCover.cover},
+			playlist: [
+			';
+				$vid_i = 1;
+				foreach($vid_arr as $vid_file) {
+					$filename = basename($vid_file);
+					$filepath = $dir . "/" . $filename;
+					$filepath_relative = "/" . $key . "/" . $filename;
+					echo '{ "title": "'.$filename.'", "type": "video", "src": "'.$filepath_relative.'", "pos": "'.$vid_i.'"}, ';
+					$vid_i++;
+				}
+	echo '
+			],
+			techOrder: ["html5", "flash"],
+			adsOptions: {
+				isMinuteBlock: true,
+
+				pre: [],
+
+				post: [
+					{url: ""}
+				],
+				
+				afterpaus: [
+					{url: ""}
+				],
+
+				overlay: [
+					{url: ""}
+				],
+
+				debug: false,
+				timeout: 2000,
+				prerollTimeout: 2000
+			}
+		};
+
+		if ($poster.length && !p) {
+			var hd_ratio = 1080 / 1920;
+			var first_video_ratio = 0.5;
+			player_conf.width = $poster.width();
+			player_conf.height = $poster.width() * (first_video_ratio >= hd_ratio && first_video_ratio <= 1 ? first_video_ratio : hd_ratio);
+			no_cats = true;
+			/*clickPlayer(0, true);*/
+		}
+	</script>
+	';
+}
+?>
+<!--		Player 2 End		-->
 </tbody></table>
 <?php include($root . "/include/flist_wrn.html"); ?>
 
-<p>
-<?php include($root . "/include/comment_btn.php"); ?>
-</p>
+<?php
+if (file_exists($dir)) {
+	if (is_dir($dir)) {
+		if (is_dir_empty($dir)) { echo '<script id="remove_fl">$("#file_list").remove(); $("#remove_fl").remove();</script>'; }
+	} else { echo '<script id="remove_fl">$("#file_list").remove(); $("#remove_fl").remove();</script>'; }
+} else { echo '<script id="remove_fl">$("#file_list").remove(); $("#remove_fl").remove();</script>'; }
+?>
 
+<?php include($root . "/include/user_btns.php"); ?>
 <?php include($root . "/include/share.html"); ?>
 
 </td></tr>

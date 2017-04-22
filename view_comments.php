@@ -1,11 +1,9 @@
 <?php
 if (isset($_SERVER['QUERY_STRING'])) {
-	if(empty($_SERVER['QUERY_STRING'])) {
-		header('Location: /');
-	}
-} else {
-	header('Location: /');
-}
+	if(!empty($_SERVER['QUERY_STRING'])) {
+		if (strpos($_SERVER['REQUEST_URI'], '?') !== false) { header('Location: /'); }
+	} else { header('Location: /'); }
+} else { header('Location: /'); }
 
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/comments/' . basename($_SERVER['QUERY_STRING']) . '.php')) { 
 	header('Location: /');
@@ -13,10 +11,10 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/comments/' . basename($_SERVER['Q
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html id="domain_comments"><head>
+<html id="category_comments"><head>
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . "/include/get_functions.php");
-$file = $_SERVER['DOCUMENT_ROOT'].'/'. str_replace('view/', 'object/', $_SERVER['QUERY_STRING']) .'.php';
+$file = $_SERVER['DOCUMENT_ROOT'].'/object/'. str_replace('view/', '', $_SERVER['QUERY_STRING']) .'.php';
 $page_title = get_title($file);
 ?>
 <title><?php echo $page_title ?></title>
@@ -35,7 +33,7 @@ print $head;
 
 
 <body onload="initBody()">
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"><tbody>
 <tr><td valign="top" style="height: 28px;">
 <?php include($root . "/include/header.php"); ?>
 </td></tr>
@@ -71,7 +69,9 @@ if(strlen($str)>0){
 					(?:(?=[^}]*\susername\s*=\s+"(?P<username>[^"]*)"))?
 					(?:(?=[^}]*\scontent\s*=\s+"(?P<content>[^"]*)"))?
 					(?:(?=[^}]*\sdate_2\s*=\s+"(?P<date_2>[^"]*)"))?
-					(?=[^}]*\sdate_1\s*=\s+"(?P<date_1>[^"]*)")/ixsm', $str, $comments_arr_raw);
+					(?=[^}]*\sdate_1\s*=\s+"(?P<date_1>[^"]*)")
+					(?=[^}]*\id\s*=\s+"(?P<id>[^"]*)")
+					(?:(?=[^}]*\stype\s*=\s+"(?P<type>[^"]*)"))?/ixsm', $str, $comments_arr_raw);
 	foreach ($comments_arr_raw as $key => $value) {
 		if (is_int($key)) {
 			unset($comments_arr_raw[$key]);
@@ -83,19 +83,40 @@ if(strlen($str)>0){
 		}
 	}
 	
-	$comment_i = 1;
+	$current_url_file = basename(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+	
 	foreach($comments_arr as $comment) {
-		echo '<tr id="comment_' . $comment_i . '"><td style="padding-left: 0px;">';
-		echo '<img src="/i/comment.gif" width="11" height="13" border="0" align="left" style="margin-right: 8px;">';
-		echo '<a href="' . $_SERVER['REQUEST_URI'] . '#' . $comment_i . '"><b>' . $comment['title'] . '</b></a>';
-		echo '<br>';
-		echo '<a href="/user/chupacabras">' . $comment['username'] . '</a>, <small>' . $comment['date_1'] . '<span class="modify_time">, ' . $comment['date_2'] . '</span></small>';
-		echo '<p>' . $comment['content'] . '</p>';
-//		echo '<p><span class="r_button_small"><a href="/edit?original_id=45987&link_id=2">ответить</a></span></p>';
-
-		echo '</td></tr>';
+		$comment_id = $comment['id'];
 		
-		$comment_i++;
+		if($comment['type'] != 'hide') {
+			echo '<tr id="comment_' . $comment_id . '"><td style="padding-left: 0px;">';
+				echo '<img src="/i/comment.gif" width="11" height="13" border="0" align="left" style="margin-right: 8px;">';
+				echo '<a href="' . $_SERVER['REQUEST_URI'] . '#' . $comment_id . '"><b>' . $comment['title'] . '</b></a>';
+				echo '<br>';
+				echo '<a href="/user/'.$comment['username'].'">' . $comment['username'] . '</a>, <small>' . $comment['date_1'] . '<span class="modify_time">, ' . $comment['date_2'] . '</span></small>';
+				echo '<p>' . $comment['content'] . '</p>';
+				
+				echo '<p>';
+				if ($_COOKIE['u_log'] == $comment['username'] || $_COOKIE['u_access'] >= '2') {
+					echo '<span class="r_button_small"><a href="/delete_link?original_id='.$current_url_file.'&id='.$comment_id.'&link_type=2">удалить</a></span>';
+				}
+				if ($_COOKIE['u_access'] >= '2') {
+					echo '<span class="r_button_small"><a href="/hide_link?original_id='.$current_url_file.'&id='.$comment_id.'&link_type=2">скрыть</a></span>';
+				}
+				echo '</p>';
+			echo '</td></tr>';
+		} else 
+		if($comment['type'] == 'hide') {
+			echo '<tr><td style="padding-left: 0px;">';
+				echo '<img src="/i/comment.gif" width="11" height="13" border="0" align="left" style="margin-right: 8px;">';
+				echo 'Нет доступа к объекту '.$comment_id.'.';
+				echo '<p>';
+				if ($_COOKIE['u_access'] >= '2') {
+					echo '<span class="r_button_small"><a href="/unhide_link?original_id='.$current_url_file.'&id='.$comment_id.'&link_type=2">показать</a></span>';
+				}
+				echo '</p>';
+			echo '</td></tr>';
+		}
 	}	
 }
 ?>
@@ -111,7 +132,7 @@ echo 'var element_to_scroll_to = document.getElementById("comment_' . $_SERVER["
 </tbody></table>
 
 <p>
-<?php include($root . "/include/comment_btn.php"); ?>
+<?php include($root . "/include/user_btns.php"); ?>
 </p>
 
 <?php include($root . "/include/share.html"); ?>

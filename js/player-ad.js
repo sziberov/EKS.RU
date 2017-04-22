@@ -173,7 +173,7 @@ function _toggle()
 		if (player_ad == 1)
 		{
 			player_ad = 2;
-			request('http://www.ex.ua/ad_player/103004334' + params, ad_response, 0);
+			request('http://www.ex.ua/ad_player/' + params, ad_response, 0);
 		}
 	}
 	else if (player_loaded)

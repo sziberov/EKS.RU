@@ -18,7 +18,7 @@ print $head;
 </head>
 
 <body onload="initBody()">
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"><tbody>
 <tr><td valign="top" style="height: 27px;">
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/include/header.php"); ?>
 </td></tr>
@@ -66,14 +66,14 @@ print $head;
         <!-- / -->
 
         <div class="fox_col2">
-        	<div class="fox_h">Экспресс-переход к объекту<i class="mail-howto"><div>Альтернатива поиску</div></i></div>
-        	<div class="fox_desc">Если вам известен номер объекта, вы можете перейти к нему заполнив поле ниже.</div>
+        	<div class="fox_h">Экспресс-переход к объекту<!--<i class="mail-howto"><div>Альтернатива поиску</div>--></i></div>
+        	<div class="fox_desc">Если вам известен ключ объекта, вы можете перейти к нему заполнив поле ниже.</div>
 			
 			<div style="overflow: visible; float: right;">
 				<input id="key" type="text" value="" class="ex" autocomplete="off" placeholder="12345678" maxlength="8" style="text-align:left">
 				<button id="getButton" onclick="getNumber()" class="button ex" style="border-radius:0 3px 3px 0; float: left; width: 97px;">получить</button>
 			</div>
-			<span id="fox_err_1">Не введен номер объекта</span>
+			<span id="fox_err_1">Не введен ключ объекта</span>
 			<span id="fox_err_2">Такого объекта не существует</span>
         </div>
     </div>
@@ -248,7 +248,7 @@ print $head;
 						include($_SERVER['DOCUMENT_ROOT'] . "/include/parse.php");
 						?>
 					</div>
-					<div id="data-rss_4" style="display: none;">
+					<div id="data-rss_4" style="">
 						<?php 
 						$feed = new SimplePie();
 						$feed->set_feed_url(array(
@@ -412,6 +412,25 @@ print $head;
 		<td align="center" valign="center"><a href="http://drive.google.com"><img src="/i/google_apps/drive.png" style="max-height: 64px; max-width: 64px;" border="0"></a><p><a href="http://drive.google.com"><b>Drive</b></a></td>
 		<td align="center" valign="center"><a href="http://translate.google.com"><img src="/i/google_apps/translate.png" style="max-height: 64px; max-width: 64px;" border="0"></a><p><a href="http://translate.google.com"><b>Переводчик</b></a></td>
 	</tbody></table>
+</div>
+-->
+
+<!--
+<div id="gender_counter_wrapper">
+    <form id="inquirer">
+        <div class="choice">
+            <h3 class="title">Вы используете устаревший браузер.</h3>
+            <h3>Хотите установить Google Chrome?</h3>
+            
+            <a href="/view/00000001" id="yes">
+            <label for="yes">Да</label>
+            
+            <a href="/" id="no">
+            <label for="no">Нет</label>
+        </div>
+
+        <a id="cancel" class="close"></a>
+    </form>
 </div>
 -->
 </td></tr>

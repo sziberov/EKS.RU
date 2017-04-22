@@ -27,12 +27,21 @@ foreach ($feed->get_items() as $item) {
 			}
 		echo '</a>';
 		echo '<div class="of"'; if ($enclosure_exists) { echo 'style="margin-left: 162px; height: 85px;"'; } echo '>';
-			echo '<a target="_blank" rel="noopener noreferrer" href="'.$item->get_permalink().'">'.$item->get_title().'</a>';
+			$title = $item->get_title();
+			$title = str_replace('&laquo;','&#8220;',$title);
+			$title = str_replace('&raquo;','&#8221;',$title);
+			$title = str_replace('«','“',$title);
+			$title = str_replace('»','”',$title);
+			echo '<a target="_blank" rel="noopener noreferrer" href="'.$item->get_permalink().'">'.html_entity_decode($title).'</a>';
 			
 			$desc = $item->get_content();
-			$desc = preg_replace("/<img.*>/","",$desc);
-			$desc = preg_replace("/<a.*>/","",$desc);
-			echo '<p>'.$desc.'</p>';
+			$desc = preg_replace('/<img.*>/','',$desc);
+			$desc = preg_replace('/<a.*>/','',$desc);
+			$desc = str_replace('&laquo;','&#8220;',$desc);
+			$desc = str_replace('&raquo;','&#8221;',$desc);
+			$desc = str_replace('«','“',$desc);
+			$desc = str_replace('»','”',$desc);
+			echo '<p>'.html_entity_decode($desc).'</p>';
 		
 			$monthes = array(1 => '01', 2 => '02', 3 => '03', 4 => '04', 5 => '05', 6 => '06', 7 => '07', 8 => '08', 9 => '09', 10 => '10', 11 => '11', 12 => '12');
 			$parsed = parse_url($feed->get_link());

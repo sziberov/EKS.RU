@@ -25,7 +25,7 @@ print $head;
 
 	
 <body onload="initBody()">
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0"><tbody>
 <tr><td valign="top" style="height: 28px;">
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/include/header.php"); ?>
 </td></tr>
@@ -100,24 +100,25 @@ print $head;
 				
 		foreach($phpfiles as $phpfile) {
 			$path = $root . "/object/" . basename($phpfile);
+			$object_file = pathinfo(basename($phpfile), PATHINFO_FILENAME);
 
 			$paddedI = str_pad($i, 8, "0", STR_PAD_LEFT);
 			
 			if (stripos(check_query($path), $query) !== false || stripos(get_title($path), $query) !== false){
 				echo '<tr><td>';
 				echo '<p>';
-					echo '<a href="/view/' . $paddedI . '">';
+					echo '<a href="/' . $object_file . '">';
 						if (stripos(get_title($path), $query) !== false) {
 							echo '<img src="' . get_icon($path) . '" border="0" align="left" style="max-width: 200px; max-height: 200px; margin: 0 16px 8px 0;" alt="' . get_title($path) . '" title="' . get_title($path) . '">';
 						} else {
 							echo '<img src="' . get_icon($path) . '" border="0" align="left" style="max-width: 100px; max-height: 100px; margin: 0 16px 8px 0;" alt="' . get_title($path) . '" title="' . get_title($path) . '">';
 						}
 					echo '</a>';
-					echo '<a href="/view/' . $paddedI . '">';
+					echo '<a href="/' . $object_file . '">';
 						echo '<b>' . get_title($path) . '</b>';
 					echo '</a>';
 					echo '<br>';
-					echo '<small>' . get_date($path) . '</small>';
+					echo '<small>' . get_date_without_mod($path) . '</small>';
 				echo '</p>';
 				echo '<p>';
 					if (get_main_info($path)) {
@@ -125,8 +126,41 @@ print $head;
 						echo '...';
 					}
 				echo '</p>';
+
+				$comments = $_SERVER['DOCUMENT_ROOT'].'/comments/'.$object_file.'.php';
+				if (file_exists($comments)) {
+					$str = file_get_contents($comments);
+					
+					if(strlen($str)>0){
+						preg_match_all('/^"(?P<title>[^"]*)"[^{]*{
+										(?:(?=[^}]*\susername\s*=\s+"(?P<username>[^"]*)"))?
+										(?:(?=[^}]*\scontent\s*=\s+"(?P<content>[^"]*)"))?
+										(?:(?=[^}]*\sdate_2\s*=\s+"(?P<date_2>[^"]*)"))?
+										(?=[^}]*\sdate_1\s*=\s+"(?P<date_1>[^"]*)")/ixsm', $str, $comments_arr_raw);
+						foreach ($comments_arr_raw as $key => $value) {
+							if (is_int($key)) {
+								unset($comments_arr_raw[$key]);
+							}
+						}
+						foreach($comments_arr_raw as $key => $a){
+							foreach($a as $k => $v){
+								$comments_arr[$k][$key] = $v;
+							}
+						}
+						
+						$comments_amount = 0;
+						foreach($comments_arr as $comment) {
+							$comments_amount++;
+						}	
+						
+						if ($comments_amount != 0) {
+							echo '<p><a href="/view_comments/'.$object_file.'" class="info">Отзывов: '.$comments_amount.'</a>&nbsp;</p>';
+						}
+					}
+				}
+					
 				echo '<p>';
-					$dir = $root . "/load/" . $paddedI;
+					$dir = $root . "/load/" . $object_file;
 					include($root . "/include/files_count.php");
 					echo '<small>Файлов: ' . $file_count . ', суммарный размер: ' . number_format(getDirectorySize($dir)) . '</small>';
 				echo '</p>';

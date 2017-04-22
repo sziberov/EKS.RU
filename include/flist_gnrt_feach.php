@@ -13,12 +13,15 @@ echo '<tr>';
 			echo '<span class="small">';
 			if (strstr($mime, "video/")) {
 				echo 'видео';
+				$vid_i++;
 			} else if (strstr($mime, "audio/")) {
 				echo 'аудио';
 			} else if (strstr($mime, "image/")) {
 				echo 'изображение';
 			} else if (strstr($mime, "/zip") || strstr($mime, "/x-rar-compressed") || strstr($mime, "/vnd.ms-cab-compressed") || strstr($mime, "/x-tar") || strstr($mime, "/java-archive") || strstr($mime, "/x-7z-compressed")) {
 				echo 'архив';
+//			} else if (strstr($mime, "/x-msdownload") || strstr($mime, "/exe") || strstr($mime, "/x-exe") || strstr($mime, "/dos-exe") || strstr($mime, "vms/exe") || strstr($mime, "/x-winexe")  || strstr($mime, "/msdos-windows")  || strstr($mime, "/x-msdos-program")) {
+//				echo 'приложение';
 //			} else {
 //				echo $mime;
 			}
